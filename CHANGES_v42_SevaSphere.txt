@@ -1,0 +1,69 @@
+SevaSphere full build (v42)
+- New SevaSphere home page: hero with photo, image cards for every category, Kids Corner as a small card.
+- Six colour directions (Dynamic Blue, Electric Cyan, Royal Violet, Emerald, Vibrant Orange, Bright Pink) via the Theme button.
+- 6 new tools: AI Prompt Generator, AI Voice Studio, Smart Notebook, Website Planner, Free Website Studio, Screen Recorder.
+- New category page: AI & Writing Tools (cat-ai.html). Website Tools now has 5 tools. Quick Utilities has 6.
+- PDF Tools card icon replaced with a clean 3D PDF image.
+- Tool count on the home page counts the real tools (89), it is not typed by hand.
+- Website Planner and Website Studio keep robots noindex (as in your files).
+- AI Voice Studio: AI mode needs the visitor's own OpenAI key. Free mode records this tab's audio (desktop Chrome or Edge).
+- Domain set to https://cschelpdesk.github.io/ in canonical, sitemap and robots.
+- To fill in: social links, contact details, Google verification (see SETUP_GUIDE.md).
+
+v4.1 home page order: Hero (tagline is a button) > Daily Use Apps (14 cards) > All Categories > Prompt Studio > Most Used Tools > Search the Web > Why SevaSphere? > How it works > Popular Topics > Official Portal Quick Links > FAQ > Help us make it better (Follow Us, Stay Updated, Quick Links, Chat with Us) > More (House Expense, Kids Corner, Prompt Studio, Step Guides, Web Search, Handwriting Converter).
+The old Daily Use Apps card section is removed. Stay Updated sends the email to the feedback page (no mailing list is connected yet).
+
+v4.2 (from your Resize & Compress report)
+- Thumb Impression Resizer: new option "Clean / change background" (white, light blue, cream or custom colour) with a strength slider, to fix grey paper from mobile camera photos.
+- Image Converter: added a Preview window and small picture in each list row; shows before and after size.
+- JPG / PNG Converter & Compressor: added a Preview window and small pictures; shows before and after size.
+
+v4.3
+- New tool: Translator (tools_translator.html), in AI & Writing Tools. English or Hindi to Hindi, Punjabi, Haryanvi, Bhojpuri. Copy, download TXT, listen.
+- Hindi and Punjabi use the free MyMemory online service. Haryanvi and Bhojpuri are made from Hindi by word rules (approximate). Optional AI method uses the visitor's own OpenAI key.
+- Tool count is now 90.
+
+v4.4
+- Translator now works in any direction between English, Hindi, Haryanvi, Punjabi and Bhojpuri, with a Swap button. Haryanvi and Bhojpuri are handled through Hindi by word rules (approximate). Backup translation service added.
+
+
+v4.5 (19 Nov 2026)
+- NEW kids-classes.html: Kids Learning for Class 2, 3, 4, 5. Subjects: Maths (random questions every time), English, Hindi, EVS, GK. Short lesson + quiz, stars, best score saved in browser, Hindi/English labels, read-aloud.
+- Linked from Kids Corner hero and home page.
+
+v4.6 (20 Nov 2026)
+- Mobile: all form fields 16px on phones (stops zoom-in on tap), 44px buttons/dropdowns, wide previews scroll inside their box. New assets/css/mobile-fix.css linked on all pages.
+
+v4.7 (20 Nov 2026)
+- Address fix: every old https://cschelpdesk.github.io link (canonical, og tags, sitemap.xml, robots.txt, README, SETUP_GUIDE, site.js, 988 places) is now https://csc-vle-tools-desk.github.io/SewaSphere/ . GitHub repo link is now CSC-VLE-TOOLS-DESK/SewaSphere. If your Settings > Pages address is different, tell Claude and it will be replaced again.
+- Kids Learning (kids-classes.html) now covers Class 1 to 5. New Class 1: Maths (random questions), English, Hindi, EVS, GK, each with lesson and quiz.
+- Every subject in every class now has Lesson 1 and Lesson 2 (buttons above the lesson).
+
+v4.8 (20 Nov 2026)
+- Kids Learning: right answer plays a happy chime and says "Well done", "Good" or "Marvellous" (Hindi: "शाबाश", "बहुत बढ़िया", "अच्छा"). Hindi is used when the Hindi button is on or in the Hindi subject. Voice needs the phone/PC speech voices (Hindi voice must be installed on the device).
+- Kids Learning: new "Lesson" button on every quiz question to go back to the lesson (progress of that round restarts).
+
+v4.9 (20 Nov 2026)
+- New tool: WhatsApp Promo Maker (tools_whatsapp_promo_maker.html, Quick Utilities). Picture on top, heading, points as bullets / numbers / dots / ticks, green link button, your name and phone. 3 ready templates (website, CSC centres, Kids Learning) in English and Hindi. Buttons: Download poster, Share poster + message, Copy message, WhatsApp, Telegram, Facebook, send to one number.
+- Full check of all 127 pages: pages load with no script errors, no broken local files, no JavaScript syntax errors.
+
+v4.10 (20 Nov 2026)
+- Quick Utilities fix: the 3 wrong "WhatsApp Promo Maker" cards (they opened RGB to HEX and Stop Watch) are removed. Now one "Promo Maker" card opens a page with 5 tools.
+- New: Facebook, Instagram, X and Telegram Promo Makers (tools_facebook_promo_maker.html, tools_instagram_promo_maker.html, tools_x_promo_maker.html, tools_telegram_promo_maker.html). WhatsApp Promo Maker now uses the same shared code (assets/js/promo-maker.js).
+- Poster size choice: Auto, Square 1:1, Portrait 4:5, Story 9:16. Instagram caption uses "Link in bio". X has a 280 letter counter and Short version.
+
+v4.11 (21 Nov 2026)
+- Handwriting to Text: Advanced OCR & Cursive Helper (tools_handwriting_converter.html), upgraded from Handwriting to Word, PDF & Text:
+  * Crop (drag on the page picture), turn left or right, remove a page, page tabs.
+  * Writing type: neat handwriting, printed, faint pencil, cursive (try).
+  * Better cleaning (contrast stretch for pencil) and straighten tilted lines.
+  * "Check these uncertain words": small picture of each unsure word with a box to type the right word; the text is updated.
+  * Cursive helper: save a clear picture and copy a ready instruction for a free AI app (Gemini, ChatGPT, Claude), then paste the text back.
+  * Word, PDF and Notepad saving is unchanged.
+
+v4.12 (21 Nov 2026) - fixes from your test report
+- Signature, Photo and Thumb Resizer: new Rotate left / Rotate right buttons under the crop picture.
+- PDF Merge: shows each file size in the list and the total before merging; after merging it shows the final merged size and page count.
+- PAN & Aadhaar Print: Gap slider (0 to 60 mm, default 12 mm) between front and back; Remove shadow; Brightness and Contrast sliders; Reset light button.
+- Resume Builder (Haryana): on a wide screen (1100 px or more) the form stays on the left and the final resume preview shows on the right. Press Update preview after changing details.
+- Not changed yet (need details): Passport Photo Sheet refinement, Background Remover.

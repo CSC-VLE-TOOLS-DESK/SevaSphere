@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Telegram Promo Maker (Personal)</title>
+<style>
+:root{--bg:#f3f6f4;--card:#fff;--ink:#14231c;--mut:#5b6b63;--line:#cfdad4;--acc:#0f7a4f;--accd:#0a5a3a}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1713;--card:#18231d;--ink:#e8f1ec;--mut:#9fb2a8;--line:#2c3d34;--acc:#2fbf84;--accd:#1f9a68}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:12px;display:grid;gap:12px}
+@media(min-width:860px){.wrap{grid-template-columns:1fr 1fr;align-items:start}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+h1{font-size:20px;margin:0 0 2px}
+.sub{color:var(--mut);font-size:13px;margin:0 0 10px}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+label small{font-weight:400;color:var(--mut)}
+input[type=text],textarea,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+textarea{min-height:90px;resize:vertical}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.row>*{flex:1 1 140px}
+button{padding:10px 12px;border:0;border-radius:8px;background:var(--acc);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+button.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button:hover{background:var(--accd)}button.alt:hover{background:var(--bg)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+canvas{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block}
+.note{font-size:12px;color:var(--mut);margin-top:6px}
+.full{grid-column:1/-1}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+  <h1>Telegram Promo Maker</h1>
+  <p class="sub">Personal use only. Picture on top, message, points and link button.</p>
+  <p class="note">The link and message open in Telegram share. Send the poster PNG separately from the Download button.</p>
+
+  <label>Picture <small>(optional)</small></label>
+  <input type="file" id="pic" accept="image/*">
+
+  <label>Video <small>(optional)</small></label>
+  <input type="file" id="vid" accept="video/*">
+  <div id="vbox" hidden>
+    <video id="vprev" controls playsinline style="width:100%;max-height:220px;border-radius:8px;margin-top:8px"></video>
+    <div class="row"><button type="button" id="vframe" class="alt">Use this frame as poster picture</button></div>
+  </div>
+
+  <label>PDF file <small>(optional)</small></label>
+  <input type="file" id="pdfin" accept="application/pdf,.pdf">
+  <div class="row">
+    <input type="number" id="pdfpg" value="1" min="1" style="flex:0 0 90px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit" aria-label="PDF page number">
+    <button type="button" id="pframe" class="alt">Use this PDF page as poster picture</button>
+  </div>
+
+  <label>HTML file <small>(optional)</small></label>
+  <input type="file" id="htmlin" accept=".html,.htm,text/html">
+  <div id="attList" class="note"></div>
+  <p class="note">Files stay on your phone. “Share poster + files” sends the poster and these files through the phone share menu.</p>
+
+  <label>First line <small>(optional)</small></label>
+  <select id="openSel"><option value="">Choose a nice opening line…</option></select>
+  <textarea id="first" rows="2" placeholder="Or type your own first line"></textarea>
+
+  <label>Title</label>
+  <input type="text" id="title" value="SevaSphere: Free Online Tools">
+
+  <label>Points <small>(one point on each line)</small></label>
+  <div class="row">
+    <select id="toolSel"><option value="">Add one tool as a point…</option></select>
+    <select id="nameMode">
+      <option value="both">English / हिंदी</option>
+      <option value="en">English only</option>
+      <option value="hi">हिंदी only</option>
+    </select>
+  </div>
+  <textarea id="points" rows="7" placeholder="One point on each line"></textarea>
+  <div class="row">
+    <button type="button" id="addAll" class="alt">Add all tools</button>
+    <button type="button" id="clearPts" class="alt">Clear points</button>
+  </div>
+
+  <label>Point style</label>
+  <select id="style">
+    <option value="num">1. 2. 3. (numbers)</option>
+    <option value="dot">• Dots</option>
+    <option value="tick">✔ Tick</option>
+    <option value="arrow">➤ Arrow</option>
+    <option value="hot">🔥 Hot</option>
+    <option value="soon">🔜 Coming soon</option>
+    <option value="new">🆕 New</option>
+    <option value="free">🆓 Free</option>
+    <option value="heart">❤️ Heart</option>
+    <option value="hand">👉 Hand pointing</option>
+    <option value="handr">👇 Hand down</option>
+    <option value="star">⭐ Star</option>
+    <option value="spark">✨ Sparkle</option>
+    <option value="rocket">🚀 Rocket</option>
+    <option value="check">✅ Green tick</option>
+    <option value="pin">📌 Pin</option>
+    <option value="gift">🎁 Gift</option>
+    <option value="bell">🔔 Bell</option>
+    <option value="thumb">👍 Thumbs up</option>
+    <option value="diamond">💎 Diamond</option>
+    <option value="phone">📱 Mobile</option>
+    <option value="none">No marker</option>
+  </select>
+
+  <label>Link</label>
+  <input type="text" id="link" value="https://csc-vle-tools-desk.github.io/SewaSphere/">
+  <label>Button text</label>
+  <input type="text" id="btn" value="Open Now 👉">
+
+  <label>Poster size</label>
+  <select id="size"><option value="1080x0">Auto height (1080 wide)</option><option value="1080x1080">Square 1080×1080</option><option value="1280x720">Landscape 1280×720</option><option value="1080x1350">Portrait 1080×1350</option></select>
+
+  <label>Hashtags <small>(optional)</small></label>
+  <select id="tagSel"><option value="">Add a hashtag…</option></select>
+  <input type="text" id="tags" value="#SevaSphere #CSC #FreeTools #DigitalIndia">
+
+  <label>Colour</label>
+  <select id="theme">
+    <option value="0">Green</option>
+    <option value="1">Blue</option>
+    <option value="2">Maroon</option>
+    <option value="3">Purple</option>
+    <option value="4">Black &amp; gold</option>
+    <option value="5">Orange</option>
+    <option value="6">Teal</option>
+    <option value="7">Pink</option>
+    <option value="8">Sky blue</option>
+    <option value="9">Saffron &amp; green</option>
+    <option value="10">Navy &amp; red</option>
+    <option value="11">Brown</option>
+    <option value="12">Dark gold</option>
+    <option value="13">Dark grey</option>
+    <option value="14">Wine &amp; pink</option>
+  </select>
+</div>
+
+<div class="card">
+  <canvas id="cv" width="1080" height="800" aria-label="Poster preview"></canvas>
+  <div class="row">
+    <button type="button" id="dl">Download poster (PNG)</button>
+    <button type="button" id="cp" class="alt">Copy post text</button>
+    <button type="button" id="sh" class="alt">Share on Telegram</button>
+  </div>
+  <p class="note" id="cnt"></p>
+  <div class="row"><button type="button" id="shf">Share poster + files</button></div>
+  <p class="note" id="msg" role="status"></p>
+</div>
+<div class="card full" id="grpCard">
+  <h1 style="font-size:18px">Group send</h1>
+  <p class="sub">Save your groups once, tick the ones you want, then send one by one. Groups are saved on this device only.</p>
+  <div class="row"><input type="text" id="gName" placeholder="Group name"><input type="text" id="gLink" placeholder="t.me/groupname or @groupname"><button type="button" id="gAdd">Add group</button></div>
+  <label>Add many at once <small>(one per line: name | link)</small></label>
+  <textarea id="gMany" rows="3"></textarea>
+  <div class="row"><button type="button" id="gManyBtn" class="alt">Add these groups</button><button type="button" id="gAll" class="alt">Select all</button><button type="button" id="gNone" class="alt">Clear selection</button></div>
+  <div id="gList"></div>
+  <p class="note" id="gStat" role="status"></p>
+  <div class="row"><button type="button" id="gNext">Open first selected group</button></div>
+  <p class="note">This opens each chosen group one by one and copies your message. Paste it there, attach the poster, and send. Then come back and tap the button for the next group.</p>
+</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const OPEN=[
+"🙏 Namaste! Ab CSC ka kaam hoga aasaan, bilkul free!",
+"नमस्ते 🙏 अब हर डॉक्यूमेंट का काम होगा मिनटों में, वो भी बिल्कुल फ्री!",
+"Namaste 🙏 Ek hi website par sab kaam, mobile se, bilkul free!",
+"🌟 CSC वालों के लिए खुशखबरी! सारे काम के टूल्स एक ही जगह।",
+"Photo, PDF, ID card, bill, sab kuch ek click mein! ✨",
+"📢 Dukaan ho ya CSC centre, ab kaam hoga fast aur smart!",
+"आपका समय कीमती है, इसलिए हमने बनाए हैं आसान टूल्स। 🚀",
+"Free tools for every CSC & Cyber Cafe: no login, no charge! 💯",
+"🙏 Dear friends, please try our new free tools and share them with others.",
+"काम आसान, फ़ाइल साइज़ सही, फॉर्म तैयार, सब कुछ मोबाइल पर! 📱"
+];
+const TOOLS=`Photo Resizer|फोटो रीसाइज़र
+Signature Resizer|सिग्नेचर रीसाइज़र
+Thumb Impression Resizer|अंगूठा निशान रीसाइज़र
+JPG to PDF|जेपीजी से पीडीएफ
+PDF Merge|पीडीएफ जोड़ें
+PDF Splitter|पीडीएफ अलग करें
+PDF Compressor|पीडीएफ कंप्रेसर
+PDF Watermark|पीडीएफ वॉटरमार्क
+Word to PDF|वर्ड से पीडीएफ
+PAN & Aadhaar Print|पैन और आधार प्रिंट
+Passport Photo Sheet|पासपोर्ट फोटो शीट
+Passport & Stamp Photo Studio|पासपोर्ट व स्टैम्प फोटो स्टूडियो
+Resume Builder|रिज़्यूमे बनाएं
+Background Remover|बैकग्राउंड हटाएं
+AI Background Remover|एआई बैकग्राउंड रिमूवर
+Image Compressor|इमेज कंप्रेसर
+JPG / PNG Converter|जेपीजी / पीएनजी कन्वर्टर
+Image Crop Tool|इमेज क्रॉप टूल
+Image Merger|इमेज मर्जर
+Name & Date on Photo|फोटो पर नाम व तारीख
+Photo & Signature Joiner|फोटो व सिग्नेचर जोड़ें
+Photo Name Joiner|फोटो नाम जोड़ें
+Image Text Extractor (OCR)|फोटो से टेक्स्ट निकालें
+Handwriting to Text|हैंडराइटिंग से टेक्स्ट
+WhatsApp Image Print|व्हाट्सऐप इमेज प्रिंट
+Admit Card Holder|एडमिट कार्ड होल्डर
+Web Search|वेब सर्च
+Application Generator|आवेदन पत्र जनरेटर
+Affidavit Formats|शपथ पत्र फॉर्मेट
+Bank Applications|बैंक आवेदन
+Agreement Generator|एग्रीमेंट जनरेटर
+Pro Studio|प्रो स्टूडियो
+Shop Ledger|दुकान खाता
+Stock Ledger|स्टॉक खाता
+House Expense|घर का खर्च
+Insurance Ledger|बीमा खाता
+Medical Store Ledger|मेडिकल स्टोर खाता
+Book Shop Ledger|बुक शॉप खाता
+Sweet Shop Ledger|मिठाई दुकान खाता
+Kirana Store Ledger|किराना स्टोर खाता
+Garment Store Ledger|गारमेंट स्टोर खाता
+Cloth Shop Ledger|कपड़ा दुकान खाता
+Bill & Receipt Generator|बिल व रसीद जनरेटर
+Age Calculator|आयु कैलकुलेटर
+Date Calculator|तारीख कैलकुलेटर
+Percentage Calculator|प्रतिशत कैलकुलेटर
+Loan EMI Calculator|लोन ईएमआई कैलकुलेटर
+CGPA Calculator|सीजीपीए कैलकुलेटर
+Gold & Silver Value Calculator|सोना-चांदी भाव कैलकुलेटर
+Margin Calculator|मार्जिन कैलकुलेटर
+Simple Calculator|साधारण कैलकुलेटर
+Typing Test & Lessons|टाइपिंग टेस्ट व लेसन
+QR Code Generator|क्यूआर कोड जनरेटर
+WhatsApp Direct Message|व्हाट्सऐप डायरेक्ट मैसेज
+RGB to HEX Converter|आरजीबी से हेक्स कन्वर्टर
+Stop Watch|स्टॉप वॉच
+PVC ID Card Print|पीवीसी आईडी कार्ड प्रिंट
+ID Card Print|आईडी कार्ड प्रिंट
+Multiple ID Card Print|मल्टीपल आईडी कार्ड प्रिंट
+Student ID Card Creator|स्टूडेंट आईडी कार्ड
+Farmer ID Card Maker|किसान आईडी कार्ड
+Visiting Card Maker|विज़िटिंग कार्ड मेकर
+Notebook Sticker Maker|नोटबुक स्टिकर मेकर
+Stamp Maker|स्टैम्प मेकर
+MPPEB Document Editor|एमपीपीईबी डॉक्यूमेंट एडिटर
+Marriage Biodata Maker|विवाह बायोडाटा
+AI Marriage Biodata Creator|एआई विवाह बायोडाटा
+Cover Letter Generator|कवर लेटर जनरेटर
+Invoice Generator|इनवॉइस जनरेटर
+Salary Slip Generator|सैलरी स्लिप जनरेटर
+Service Rate List|सेवा रेट लिस्ट
+Map Download & Print|नक्शा डाउनलोड व प्रिंट
+Question Paper Maker|प्रश्न पत्र मेकर
+Privacy Policy Generator|प्राइवेसी पॉलिसी जनरेटर
+Disclaimer Generator|डिस्क्लेमर जनरेटर
+About Us Generator|अबाउट अस जनरेटर
+AI Couple Photo Creator|एआई कपल फोटो
+AI Family Photo Creator|एआई फैमिली फोटो
+Document Album Creator|डॉक्यूमेंट एल्बम
+ID Card Album Cover Creator|आईडी कार्ड एल्बम कवर
+Mobile Cam Scanner|मोबाइल कैम स्कैनर
+Translator (Hindi, Haryanvi, Punjabi, Bhojpuri)|अनुवादक (हिंदी, हरियाणवी, पंजाबी, भोजपुरी)
+AI Prompt Generator|एआई प्रॉम्प्ट जनरेटर
+AI Voice Studio|एआई वॉइस स्टूडियो
+Smart Notebook|स्मार्ट नोटबुक
+Website Planner|वेबसाइट प्लानर
+Free Website Studio|फ्री वेबसाइट स्टूडियो
+Screen Recorder|स्क्रीन रिकॉर्डर
+Kids Learning (Class 1 to 5)|बच्चों की पढ़ाई (कक्षा 1 से 5)
+Kids Corner|किड्स कॉर्नर
+Promo Maker|प्रोमो मेकर
+Image Converter|इमेज कन्वर्टर
+Background Remover Pro|बैकग्राउंड रिमूवर प्रो
+PDF Merger|पीडीएफ मर्जर
+PDF Split|पीडीएफ स्प्लिट
+Photo Signature Joiner|फोटो सिग्नेचर जोड़ें
+Student ID Card|स्टूडेंट आईडी कार्ड
+WhatsApp Promo Maker|व्हाट्सऐप प्रोमो मेकर
+Facebook Promo Maker|फेसबुक प्रोमो मेकर
+Instagram Promo Maker|इंस्टाग्राम प्रोमो मेकर
+X Promo Maker|एक्स प्रोमो मेकर
+Telegram Promo Maker|टेलीग्राम प्रोमो मेकर
+Prompt Studio|प्रॉम्प्ट स्टूडियो
+Step Guides|स्टेप गाइड (हिंदी / English)
+Smart Board|स्मार्ट बोर्ड`.split("\n").map(l=>l.split("|"));
+
+const THEMES=[["#0b3d2e","#127a55","#ffd54a"],["#0d2b66","#1c5bd6","#ffe066"],["#5a0f1f","#a62339","#ffd9a0"],["#2d1457","#6a3fc4","#ffe28a"],["#111111","#2a2a2a","#e8b92f"],["#7a2e00","#e0620f","#fff2b0"],["#064a4f","#0e8f98","#ffe08a"],["#7a1450","#d6336c","#ffe9a8"],["#0b4f8a","#2aa1d8","#fff3a6"],["#b34700","#138808","#fff6c2"],["#0b1b3a","#7a1020","#ffd166"],["#3b2412","#8a5a2b","#ffe3a3"],["#2b2100","#8a6d10","#fff1a8"],["#1c1f23","#4a5058","#7ee0b5"],["#3a0a2a","#b02a78","#ffd1e8"]];
+let img=null;
+
+OPEN.forEach(t=>{const o=document.createElement("option");o.value=t;o.textContent=t;$("openSel").appendChild(o)});
+TOOLS.forEach((t,i)=>{const o=document.createElement("option");o.value=i;o.textContent=(i+1)+". "+t[0]+" / "+t[1];$("toolSel").appendChild(o)});
+
+const nm=i=>{const m=$("nameMode").value,t=TOOLS[i];return m==="en"?t[0]:m==="hi"?t[1]:t[0]+" / "+t[1]};
+function addLine(s){const p=$("points");p.value=(p.value.trim()?p.value.replace(/\n+$/,"")+"\n":"")+s;draw()}
+$("openSel").onchange=e=>{$("first").value=e.target.value;draw()};
+$("toolSel").onchange=e=>{if(e.target.value!==""){addLine(nm(+e.target.value));e.target.value=""}};
+$("addAll").onclick=()=>{$("points").value=TOOLS.map((_,i)=>nm(i)).join("\n");draw()};
+$("clearPts").onclick=()=>{$("points").value="";draw()};
+$("pic").onchange=e=>{const f=e.target.files[0];if(!f){img=null;draw();return}const im=new Image();im.onload=()=>{img=im;draw()};im.src=URL.createObjectURL(f)};
+["first","title","points","style","link","btn","theme","size","tags"].forEach(id=>$(id).addEventListener("input",draw));
+
+function pts(){return $("points").value.split("\n").map(s=>s.trim()).filter(Boolean)}
+const MK={dot:"• ",tick:"✔ ",arrow:"➤ ",hot:"🔥 ",soon:"🔜 ",new:"🆕 ",free:"🆓 ",heart:"❤️ ",hand:"👉 ",handr:"👇 ",star:"⭐ ",spark:"✨ ",rocket:"🚀 ",check:"✅ ",pin:"📌 ",gift:"🎁 ",bell:"🔔 ",thumb:"👍 ",diamond:"💎 ",phone:"📱 ",none:""};
+function mark(i){const k=$("style").value;return k==="num"?(i+1)+". ":(MK[k]||"")}
+function wrap(c,t,w){const out=[];t.split("\n").forEach(p=>{let l="";p.split(" ").forEach(wd=>{const x=l?l+" "+wd:wd;if(c.measureText(x).width>w&&l){out.push(l);l=wd}else l=x});out.push(l)});return out}
+const F=(s,b)=>(b?"bold ":"")+s+'px "Noto Sans Devanagari",Arial,sans-serif';
+
+function draw(){upd();
+  const cv=$("cv"),c=cv.getContext("2d"),W=+$("size").value.split("x")[0],pad=60,mw=W-2*pad;
+  const th=THEMES[+$("theme").value],first=$("first").value.trim(),title=$("title").value.trim(),link=$("link").value.trim(),btn=$("btn").value.trim();
+  const P=pts().map((p,i)=>mark(i)+p);
+  c.font=F(40);const fl=first?wrap(c,first,mw):[];
+  c.font=F(58,1);const tl=title?wrap(c,title,mw):[];
+  c.font=F(38);const pl=P.map(p=>wrap(c,p,mw));
+  const ptLines=pl.reduce((a,b)=>a+b.length,0);
+  const imgH=img?Math.min(700,Math.round(W*img.height/img.width)):0;
+  const H0=imgH+pad+(fl.length?fl.length*56+30:0)+tl.length*76+24+ptLines*52+pl.length*12+30+(btn?130:0)+(link?60:0)+50;
+  const H=Math.max(H0,Math.round(W*(+$("size").value.split("x")[1]||0)/W));
+  cv.width=W;cv.height=H;
+  const g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,th[0]);g.addColorStop(1,th[1]);c.fillStyle=g;c.fillRect(0,0,W,H);
+  if(img){const r=Math.max(W/img.width,imgH/img.height),w=img.width*r,h=img.height*r;c.save();c.beginPath();c.rect(0,0,W,imgH);c.clip();c.drawImage(img,(W-w)/2,(imgH-h)/2,w,h);c.restore();c.fillStyle=th[2];c.fillRect(0,imgH,W,8)}
+  let y=imgH+pad+Math.floor((H-H0)/2);c.textBaseline="alphabetic";
+  c.fillStyle="#fff";c.font=F(40);fl.forEach(l=>{y+=56;c.fillText(l,pad,y-12)});if(fl.length)y+=30;
+  c.fillStyle=th[2];c.font=F(58,1);tl.forEach(l=>{y+=76;c.fillText(l,pad,y-16)});y+=24;
+  c.fillStyle="#fff";c.font=F(38);
+  pl.forEach(a=>{a.forEach(l=>{y+=52;c.fillText(l,pad,y-12)});y+=12});
+  y+=30;
+  if(btn){c.fillStyle=th[2];c.beginPath();if(c.roundRect)c.roundRect(pad,y,mw,96,48);else c.rect(pad,y,mw,96);c.fill();c.fillStyle=th[0];c.font=F(44,1);c.textAlign="center";c.fillText(btn,W/2,y+63);c.textAlign="left";y+=130}
+  if(link){c.fillStyle="#d9e6df";c.font=F(30);c.textAlign="center";c.fillText(link,W/2,y+20,mw);c.textAlign="left"}
+}
+const LIMIT=4096,PF="telegram";
+["#SevaSphere", "#CSC", "#CSCVLE", "#FreeTools", "#DigitalIndia", "#OnlineTools", "#PDFTools", "#PhotoResizer", "#PassportPhoto", "#ResumeBuilder", "#Haryana", "#CyberCafe", "#DigitalSeva", "#StudentTools", "#GovtForms", "#Aadhaar", "#PANCard", "#SmallBusiness", "#JobAlert", "#FreeOnline"].forEach(t=>{const o=document.createElement("option");o.value=t;o.textContent=t;$("tagSel").appendChild(o)});
+$("tagSel").onchange=e=>{if(e.target.value){const i=$("tags");i.value=(i.value.trim()+" "+e.target.value).trim();e.target.value="";draw()}};
+function text(withLink=true){
+  const f=$("first").value.trim(),t=$("title").value.trim(),l=$("link").value.trim(),b=$("btn").value.trim(),g=$("tags").value.trim();
+  const sep=PF==="x"?"\n":"\n\n";
+  const lk=withLink&&l?(b?b+" "+l:l):"";
+  return [f,t,pts().map((p,i)=>mark(i)+p).join("\n"),lk,g].filter(Boolean).join(sep);
+}
+function upd(){
+  const t=text(PF!=="x"||false),l=$("link").value.trim();
+  let n=PF==="x"?Array.from(text(false)).length+(l?24:0):Array.from(t).length;
+  let m=n+" / "+LIMIT+" characters";
+  if(PF==="instagram"){const k=($("tags").value.match(/#/g)||[]).length;m+="  |  hashtags: "+k+" / 30"}
+  const over=n>LIMIT||(PF==="instagram"&&($("tags").value.match(/#/g)||[]).length>30);
+  $("cnt").textContent=m+(over?"  (too long)":"");$("cnt").style.color=over?"#d33":"";
+}
+const say=s=>{$("msg").textContent=s};
+async function copyText(){const x=text();try{await navigator.clipboard.writeText(x)}catch(e){const t=document.createElement("textarea");t.value=x;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}}
+$("dl").onclick=()=>{$("cv").toBlob(b=>{const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="telegram-promo.png";a.click();say("Poster saved.")})};
+$("cp").onclick=()=>copyText().then(()=>say("Post text copied."));
+$("sh").onclick=()=>{window.open("https://t.me/share/url?url="+encodeURIComponent($("link").value.trim())+"&text="+encodeURIComponent(text(false)),"_blank")};
+const ATT={video:null,pdf:null,html:null},ICON={video:"🎬",pdf:"📄",html:"🌐"};
+const sz=n=>n>1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB";
+function showAtt(){
+  const box=$("attList");box.textContent="";
+  Object.keys(ATT).forEach(k=>{const f=ATT[k];if(!f)return;
+    const d=document.createElement("div");d.textContent=ICON[k]+" "+f.name+" ("+sz(f.size)+") ";
+    const b=document.createElement("button");b.type="button";b.className="alt";b.style.cssText="padding:2px 8px;font-size:12px";b.textContent="Remove";
+    b.onclick=()=>{ATT[k]=null;if(k==="video"){$("vbox").hidden=true;$("vprev").removeAttribute("src");$("vid").value=""}if(k==="pdf")$("pdfin").value="";if(k==="html")$("htmlin").value="";showAtt()};
+    d.appendChild(b);box.appendChild(d)});
+}
+const setImg=url=>{const im=new Image();im.onload=()=>{img=im;draw()};im.src=url};
+$("vid").onchange=e=>{const f=e.target.files[0];if(!f)return;ATT.video=f;$("vprev").src=URL.createObjectURL(f);$("vbox").hidden=false;showAtt()};
+$("vframe").onclick=()=>{const v=$("vprev");if(!v.videoWidth){say("Play or scrub the video once, then try again.");return}
+  const c=document.createElement("canvas");c.width=v.videoWidth;c.height=v.videoHeight;c.getContext("2d").drawImage(v,0,0);setImg(c.toDataURL("image/jpeg",.92));say("Video frame set as poster picture.")};
+$("pdfin").onchange=e=>{ATT.pdf=e.target.files[0]||null;showAtt()};
+$("htmlin").onchange=e=>{ATT.html=e.target.files[0]||null;showAtt()};
+let pdfLib=null;const PU="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
+async function loadPdfJs(){if(pdfLib)return pdfLib;
+  await new Promise((ok,no)=>{const s=document.createElement("script");s.src=PU+"pdf.min.js";s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+  const b=await (await fetch(PU+"pdf.worker.min.js")).blob();window.pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(b);pdfLib=window.pdfjsLib;return pdfLib}
+$("pframe").onclick=async()=>{if(!ATT.pdf){say("Choose a PDF file first.");return}
+  try{say("Reading PDF…");const lib=await loadPdfJs();const doc=await lib.getDocument({data:await ATT.pdf.arrayBuffer()}).promise;
+    const n=Math.min(Math.max(1,+$("pdfpg").value||1),doc.numPages);const pg=await doc.getPage(n);const vp=pg.getViewport({scale:1.6});
+    const c=document.createElement("canvas");c.width=vp.width;c.height=vp.height;await pg.render({canvasContext:c.getContext("2d"),viewport:vp}).promise;
+    setImg(c.toDataURL("image/jpeg",.92));say("PDF page "+n+" set as poster picture.")}
+  catch(e){say("Could not read the PDF. The PDF reader needs internet once to load.")}};
+$("shf").onclick=async()=>{
+  const blob=await new Promise(r=>$("cv").toBlob(r));
+  const files=[new File([blob],"promo.png",{type:"image/png"})];
+  ["video","pdf","html"].forEach(k=>ATT[k]&&files.push(ATT[k]));
+  const tx=text();
+  try{
+    if(navigator.canShare&&navigator.canShare({files,text:tx})){await navigator.share({files,text:tx});say("Shared.");return}
+    const f2=files.filter(f=>!/\.html?$/i.test(f.name));
+    if(navigator.canShare&&navigator.canShare({files:f2,text:tx})){await navigator.share({files:f2,text:tx});say("Shared. The HTML file was skipped because this phone does not allow sharing it.");return}
+    say("This browser cannot share files. Use the Download button and attach the files by hand.");
+  }catch(e){if(e.name!=="AbortError")say("Share failed: "+e.message)}
+};
+const GK="grp_"+document.title;let G=[],Q=[],qi=0;
+try{G=JSON.parse(localStorage.getItem(GK)||"[]")}catch(e){G=[]}
+const saveG=()=>{try{localStorage.setItem(GK,JSON.stringify(G))}catch(e){}};
+function copySync(x){const t=document.createElement("textarea");t.value=x;t.style.cssText="position:fixed;opacity:0";document.body.appendChild(t);t.select();try{document.execCommand("copy")}catch(e){}t.remove()}
+const isNum=l=>/^\+?\d[\d\s-]{7,}$/.test(l.trim());
+function gurl(l,t){l=l.trim();if(isNum(l))return "https://wa.me/"+l.replace(/\D/g,"")+"?text="+encodeURIComponent(t);
+  if(l[0]==="@")return "https://t.me/"+l.slice(1);return /^https?:\/\//i.test(l)?l:"https://"+l}
+function gstat(){const n=G.filter(g=>g.on).length;Q=[];qi=0;$("gNext").textContent="Open first selected group";
+  $("gStat").textContent=G.length?n+" of "+G.length+" groups selected.":"No groups yet. Add your first group above."}
+function renderG(){const box=$("gList");box.textContent="";
+  G.forEach((g,i)=>{const r=document.createElement("label");r.style.cssText="display:flex;gap:8px;align-items:center;font-weight:400;margin:6px 0";
+    const c=document.createElement("input");c.type="checkbox";c.checked=!!g.on;c.onchange=()=>{g.on=c.checked;saveG();gstat()};
+    const n=document.createElement("span");n.style.flex="1";n.textContent=g.name;
+    const x=document.createElement("button");x.type="button";x.className="alt";x.style.cssText="padding:2px 8px;font-size:12px;flex:0 0 auto";x.textContent="Delete";
+    x.onclick=e=>{e.preventDefault();G.splice(i,1);saveG();renderG()};
+    r.append(c,n,x);box.appendChild(r)});gstat()}
+$("gAdd").onclick=()=>{const n=$("gName").value.trim(),l=$("gLink").value.trim();if(!l){say("Enter the group link or number.");return}
+  G.push({name:n||l,link:l,on:true});$("gName").value="";$("gLink").value="";saveG();renderG()};
+$("gManyBtn").onclick=()=>{let k=0;$("gMany").value.split("\n").forEach(s=>{s=s.trim();if(!s)return;const p=s.split("|");
+  const l=(p.length>1?p.slice(1).join("|"):p[0]).trim(),n=(p.length>1?p[0]:p[0]).trim();if(l){G.push({name:n,link:l,on:true});k++}});
+  $("gMany").value="";saveG();renderG();say(k+" groups added.")};
+$("gAll").onclick=()=>{G.forEach(g=>g.on=true);saveG();renderG()};
+$("gNone").onclick=()=>{G.forEach(g=>g.on=false);saveG();renderG()};
+$("gNext").onclick=()=>{
+  if(!Q.length){Q=G.filter(g=>g.on);qi=0;if(!Q.length){say("Select at least one group.");return}}
+  const g=Q[qi],t=text(),num=isNum(g.link);
+  if(!num)copySync(t);
+  window.open(gurl(g.link,t),"_blank");qi++;
+  if(qi>=Q.length){$("gStat").textContent="Opened "+qi+" of "+Q.length+": "+g.name+". That was the last one.";Q=[];qi=0;$("gNext").textContent="Start again"}
+  else{$("gStat").textContent="Opened "+qi+" of "+Q.length+": "+g.name+". "+(num?"Message is filled in.":"Message copied. Paste it and attach the poster.")+" Next: "+Q[qi].name+".";$("gNext").textContent="Open next group ("+(qi+1)+" of "+Q.length+")"}};
+renderG();
+document.fonts&&document.fonts.ready.then(draw);draw();
+</script>
+<script>(function(){function s(){try{parent.postMessage({ssh:document.documentElement.scrollHeight},"*")}catch(e){}}addEventListener("load",s);addEventListener("resize",s);document.addEventListener("input",s);document.addEventListener("click",function(){setTimeout(s,60)});setInterval(s,1200)})();</script>
+</body>
+</html>

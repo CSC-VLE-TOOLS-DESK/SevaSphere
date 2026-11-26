@@ -1,0 +1,6 @@
+SevaSphere v4.13 (built on v4.12)
+- NEW TOOL: Smart Board (tools_smart_board.html, category Exam & Education). Digital whiteboard for desktop and laptop: pen, highlighter, eraser, line, arrow, box, circle, triangle, text, sticky notes, laser pointer, 12 colours plus custom colour, 8 backgrounds, many pages, undo and redo, save as PNG, PDF or project file, voice recording, full screen. App file: assets/apps/smart-board.html.
+- Smart Board pictures: draw a box, choose a picture, set 4 pins on the picture and press Set / Enter. The area inside the pins is straightened and fitted into the box. Then move, resize, rotate, flip, brightness, contrast, colour, opacity, round corners, border, black and white, Auto enhance, copy, front and back.
+- Promo Makers (WhatsApp, Facebook, Instagram, Telegram, X): each page now opens the new Pro version by default, with the Classic version one tap away. Pro version: points dropdown with all tool names in English and Hindi, first-line sentences, 22 point styles, 15 colours, video, PDF and HTML attachments, Share poster + files, platform poster sizes, hashtags with counter, and Group send (save groups, send one by one). App files: assets/apps/promo-*.html.
+- Registered in the site tool list, Exam & Education page (now 4 tools), home card count, sitemap and chatbot help.
+- Keep the assets/apps folder when you upload to GitHub.

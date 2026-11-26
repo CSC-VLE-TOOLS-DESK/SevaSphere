@@ -1,0 +1,27 @@
+SevaSphere v4.14 (built on v4.13)  -  23 Nov 2026
+
+CHATBOT (English + Hindi)
+- New language button in the chatbot header: [हिंदी] / [EN]. The choice is remembered. Typing in Hindi (Devanagari) switches the helper to Hindi automatically.
+- New "Tools list" (header button 📋, chip "📋 Tools list", or type "all tools" / "सभी टूल"): every tool grouped by category in tap-to-open groups, plus the pages & guides.
+- Full step guides in Hindi for all 97 guides (every tool, the 5 Promo Makers + Promo Maker overview, Smart Board) with Hindi tips, Hindi tool names, Hindi category names, Hindi FAQ, Hindi page help and Hindi search words (aadhaar = आधार, PDF छोटी करें, etc.).
+- English guides added for Promo Maker and the 5 platform Promo Makers (they had none).
+- New file: assets/js/chatbot-hi.js (all Hindi text; edit it to change Hindi wording). chatbot-data.js stays English.
+
+PROMPT STUDIO - HINDI VERSION
+- assets/js/prompts-packs.js: all 120 ready-made prompts now have BOTH an English and a Hindi title + text (113 Hindi versions were empty and showed English in Hindi view; 7 Hindi-only prompts got English).
+
+STEP GUIDES (my-step-guides.html)
+- New English | हिंदी switch. All 5 topics (AI Photography Prompts, Website SEO, Upload to GitHub, Fix problems, Link Excel) are fully available in Hindi: titles, every step, buttons, counts and page text. Commands stay unchanged and copy as before. Language is remembered.
+
+PROMO MAKERS + SMART BOARD
+- New category page cat-promo.html "Promo Makers" (WhatsApp, Facebook, Instagram, X, Telegram) with its own home card, sidebar link, sitemap entry and "New Tools" panel entry.
+- New home card "Smart Board" (opens the tool) + sidebar link + "New Tools" entry.
+- The 5 Promo Makers now appear in All Tools search and the home tool count (they were hidden). Their tiles use each platform's icon. Quick Utilities is back to 6 tools.
+- Exam & Education sidebar count corrected to 4 (Smart Board).
+- Promo apps (assets/apps/promo-*.html) and Smart Board (assets/apps/smart-board.html) compared with your uploaded files: identical, except the small height script used inside the page. Added Prompt Studio and Step Guides to the points dropdown (English + Hindi) in all 5 promo apps.
+
+FOOTER SHARE BUTTONS (home page: Follow Us / Share)
+- Facebook, Telegram, X now have their own look (blue, sky-blue, black) instead of one blue for all; WhatsApp unchanged. Follow-us icons (Instagram, LinkedIn, GitHub, Claude) also keep their own colours.
+- NEW Instagram share button (Instagram colours). Instagram has no web share link, so: on a phone it opens the share sheet (pick Instagram); on a computer it copies the link, shows a message and opens instagram.com.
+
+Files changed/added: assets/js/chatbot.js, chatbot-hi.js (new), chatbot-data.js, prompts-packs.js, site.js, assets/css/sevasphere-home.css, assets/img/seva/promo.svg + smartboard.svg (new), assets/apps/promo-*.html, cat-promo.html (new), index.html, my-step-guides.html, tools_promo_maker.html, cat-util.html, sitemap.xml, sidebar of every category/tool page. Keep the assets/apps folder when you upload.

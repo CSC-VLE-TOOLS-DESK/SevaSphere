@@ -1,0 +1,10 @@
+SevaSphere update: Kids Corner moved to its own site
+New site: https://csc-vle-tools-desk.github.io/Kids-Corner/
+
+Upload these files to the SevaSphere repository (same folders, replace existing).
+- kids-corner.html is now a small redirect page, so old links and bookmarks still work.
+- All menus and links now go directly to the new site.
+- sitemap.xml no longer lists the old Kids Corner page.
+
+Not changed (safe to keep for now): assets/kids, kids-corner-standalone.html, kids-classes.html page itself.
+After you confirm everything works you may delete assets/kids and kids-corner-standalone.html from SevaSphere to reduce files.
