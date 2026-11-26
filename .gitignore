@@ -7,3 +7,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 desktop.ini
+CHANGES_*.txt
+REVIEW_NOTES*.txt
+TEST_CHECKLIST*.txt
+DEMO_README.txt
