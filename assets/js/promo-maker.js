@@ -1,5 +1,5 @@
 (function(){
-var P=window.PROMO||"whatsapp",$=function(i){return document.getElementById(i)},SITE="https://csc-vle-tools-desk.github.io/SewaSphere/",KEY="ss_promo_name",img=null;
+var P=window.PROMO||"whatsapp",$=function(i){return document.getElementById(i)},SITE="https://csc-vle-tools-desk.github.io/SevaSphere/",KEY="ss_promo_name",img=null;
 var C={whatsapp:{bold:1,size:"auto"},facebook:{size:"sq"},instagram:{size:"p45",bio:1},x:{size:"sq",lim:280,short:1},telegram:{size:"auto"}}[P]||{size:"auto"};
 var TAGS="#SevaSphere #CSC #FreeTools #DigitalIndia";
 var T=[{

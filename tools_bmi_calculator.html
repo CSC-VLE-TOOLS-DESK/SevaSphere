@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BMI Calculator | SevaSphere</title>
+  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/portal.css?v=41"><link rel="stylesheet" href="assets/css/csc-system.css?v=41">
+  <meta name="description" content="Find your BMI and healthy weight range from height and weight, in kg, cm, feet or pounds. Free online tool for CSC &amp; VLE centres, cyber cafes and students.">
+  <meta name="keywords" content="BMI calculator, body mass index, healthy weight, height weight calculator, CSC VLE tools, free online tool, Rohtak Haryana">
+  <meta name="author" content="SevaSphere">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://csc-vle-tools-desk.github.io/SevaSphere/tools_bmi_calculator.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="SevaSphere"><meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="BMI Calculator | SevaSphere"><meta property="og:description" content="Find your BMI and healthy weight range from height and weight, in kg, cm, feet or pounds. Free online tool for CSC &amp; VLE centres, cyber cafes and students."><meta property="og:url" content="https://csc-vle-tools-desk.github.io/SevaSphere/tools_bmi_calculator.html"><meta property="og:image" content="https://csc-vle-tools-desk.github.io/SevaSphere/og-image.png">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="BMI Calculator | SevaSphere"><meta name="twitter:description" content="Find your BMI and healthy weight range from height and weight, in kg, cm, feet or pounds. Free online tool for CSC &amp; VLE centres, cyber cafes and students."><meta name="twitter:image" content="https://csc-vle-tools-desk.github.io/SevaSphere/og-image.png">
+  <meta name="geo.region" content="IN-HR"><meta name="geo.placename" content="Rohtak, Haryana">
+  <meta name="theme-color" content="#1a3fa6">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="favicon.ico?v=3" sizes="any">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "BMI Calculator", "url": "https://csc-vle-tools-desk.github.io/SevaSphere/tools_bmi_calculator.html", "description": "Find your BMI and healthy weight range from height and weight, in kg, cm, feet or pounds. Free online tool for CSC & VLE centres, cyber cafes and students.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "inLanguage": "en-IN", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "publisher": {"@type": "Organization", "name": "SevaSphere", "url": "https://csc-vle-tools-desk.github.io/SevaSphere/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://csc-vle-tools-desk.github.io/SevaSphere/"}, {"@type": "ListItem", "position": 2, "name": "BMI Calculator", "item": "https://csc-vle-tools-desk.github.io/SevaSphere/tools_bmi_calculator.html"}]}</script>
+  <link rel="stylesheet" href="assets/css/candy3d.css?v=41">
+  <script src="assets/js/candy3d.js?v=41" defer></script>
+<link rel="stylesheet" href="assets/css/mobile-fix.css">
+<style>
+.tw{max-width:760px;margin:0 auto;padding:0 14px 20px}
+.tcard{background:#fff;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);border:1px solid #d5dce4;color:#1b2430}
+.tcard label{display:block;font-size:13px;font-weight:600;color:#444;margin:0 0 6px}
+.tcard input[type=number],.tcard input[type=text],.tcard select,.tcard textarea{width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:8px;font:inherit;font-size:15px;background:#fff;color:#1b2430}
+.tcard textarea{min-height:200px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.row.one{grid-template-columns:1fr}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.btn{background:#1a3fa6;color:#fff;border:0;padding:12px 16px;border-radius:8px;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.btn:hover{background:#0f2a73}.btn.alt{background:#fff;color:#1a3fa6;border:2px solid #1a3fa6}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.btns .btn{flex:1;min-width:120px}
+.res{margin-top:18px;background:#e8eefc;border:1px solid #c5d3f5;border-radius:10px;padding:18px;text-align:center}
+.res .big{font-size:38px;font-weight:800;color:#1a3fa6;line-height:1.1}
+.res .tag{display:inline-block;margin-top:8px;padding:4px 14px;border-radius:999px;color:#fff;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:#fff;border-radius:8px;border-top:3px solid #1a3fa6;padding:10px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.stat b{display:block;font-size:22px;color:#1b2430}.stat span{font-size:12px;color:#5d6b7a}
+.note{font-size:13px;color:#5d6b7a;margin-top:12px}
+.err{color:#b3261e;font-weight:600;margin-top:10px}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.seg button{border:1px solid #d5dce4;background:#fff;color:#1b2430;border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed=true]{background:#1a3fa6;color:#fff;border-color:#1a3fa6}
+.pw{font-family:ui-monospace,Consolas,monospace;font-size:20px;word-break:break-all;background:#fff;border:1px dashed #1a3fa6;border-radius:8px;padding:14px;color:#1b2430;text-align:center}
+.meter{height:10px;background:#d5dce4;border-radius:9px;overflow:hidden;margin:10px 0 4px}.meter i{display:block;height:100%;width:0;transition:width .2s,background .2s}
+.chk{display:flex;align-items:center;gap:8px;margin:8px 0;font-weight:600}.chk input{width:20px;height:20px}
+.swap{align-self:end}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+  <main id="main">
+    <div class="page-head no-print">
+      <div class="crumbs"><a href="index.html">Home</a> / Calculators</div>
+      <h1>BMI Calculator</h1>
+      <p>Find your BMI and healthy weight range from height and weight, in kg, cm, feet or pounds.</p>
+    </div>
+    <div class="tw"><div class="tcard">
+<div class="seg" id="u" role="group" aria-label="Units"><button type="button" data-u="m" aria-pressed="true">Metric (cm, kg)</button><button type="button" data-u="i" aria-pressed="false">Imperial (ft, lb)</button></div>
+<div id="fm"><div class="row"><div><label for="hc">Height (cm)</label><input type="number" id="hc" inputmode="decimal" min="50" max="260" placeholder="e.g. 165"></div><div><label for="wk">Weight (kg)</label><input type="number" id="wk" inputmode="decimal" min="10" max="400" placeholder="e.g. 60"></div></div></div>
+<div id="fi" hidden><div class="row"><div><label for="hf">Height (feet)</label><input type="number" id="hf" inputmode="numeric" min="1" max="8" placeholder="e.g. 5"></div><div><label for="hi">Height (inches)</label><input type="number" id="hi" inputmode="decimal" min="0" max="11.9" placeholder="e.g. 7"></div></div><div class="row one"><div><label for="wl">Weight (pounds)</label><input type="number" id="wl" inputmode="decimal" min="20" max="900" placeholder="e.g. 132"></div></div></div>
+<div class="btns"><button class="btn" id="go" type="button">Calculate BMI</button><button class="btn alt" id="clr" type="button">Clear</button></div>
+<div class="err" id="er" role="alert"></div>
+<div class="res" id="rs" hidden><div>Your BMI</div><div class="big" id="bv">0</div><span class="tag" id="bt"></span><p id="bw" style="margin:12px 0 0"></p></div>
+<p class="note">BMI is a general guide only. It does not show body fat, muscle or health problems. These ranges are the standard WHO adult ranges (Underweight below 18.5, Normal 18.5 to 24.9, Overweight 25 to 29.9, Obese 30 and above). For adults only. Please ask a doctor for medical advice.</p>
+    </div></div>
+  </main>
+  <section class="seo-about" aria-labelledby="about-tool"><div class="box">
+    <h2 id="about-tool">About BMI Calculator</h2>
+    <p>Find your BMI and healthy weight range from height and weight, in kg, cm, feet or pounds. BMI Calculator is a free online tool on SevaSphere, made for CSC and VLE centres, cyber cafes, students and job seekers.</p>
+    <ul><li>Free to use, with no sign-up or login</li><li>Runs in your browser, so your data is not uploaded to our servers</li><li>Works on mobile, tablet and desktop</li></ul>
+    <p>Please check the final result against the latest official instructions before you use it. See our <a href="disclaimer.html">disclaimer</a>.</p>
+    <h3 style="margin:16px 0 10px;color:var(--brand);font-size:1rem">More in Calculators</h3><div class="rel"><a href="tools_unit_converter.html">Unit Converter</a></div>
+  </div></section>
+  <footer id="site-footer"></footer>
+  <script>(function(){var $=function(i){return document.getElementById(i)},U='m';
+document.getElementById('u').onclick=function(e){var b=e.target.closest('button');if(!b)return;U=b.dataset.u;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});$('fm').hidden=U!=='m';$('fi').hidden=U==='m';$('rs').hidden=true;$('er').textContent=''};
+function calc(){var h,w;$('er').textContent='';
+ if(U==='m'){h=parseFloat($('hc').value)/100;w=parseFloat($('wk').value)}
+ else{var f=parseFloat($('hf').value),i=parseFloat($('hi').value)||0;h=(f*12+i)*0.0254;w=parseFloat($('wl').value)*0.45359237}
+ if(!(h>0.5&&h<2.6)||!(w>10&&w<420)){$('rs').hidden=true;$('er').textContent='Please enter a valid height and weight.';return}
+ var b=w/(h*h),c,col;if(b<18.5){c='Underweight';col='#0284c7'}else if(b<25){c='Normal weight';col='#16a34a'}else if(b<30){c='Overweight';col='#ea580c'}else{c='Obese';col='#dc2626'}
+ $('bv').textContent=b.toFixed(1);$('bt').textContent=c;$('bt').style.background=col;
+ var lo=18.5*h*h,hi=24.9*h*h,t=U==='m'?lo.toFixed(1)+' to '+hi.toFixed(1)+' kg':(lo/0.45359237).toFixed(0)+' to '+(hi/0.45359237).toFixed(0)+' lb';
+ $('bw').textContent='Healthy weight for your height: '+t;$('rs').hidden=false}
+$('go').onclick=calc;
+$('clr').onclick=function(){['hc','wk','hf','hi','wl'].forEach(function(i){$(i).value=''});$('rs').hidden=true;$('er').textContent=''};
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName==='INPUT')calc()})})();</script>
+  <script src="assets/js/site.js?v=414"></script>
+  <script src="assets/js/chatbot-data.js?v=414" defer></script>
+  <script src="assets/js/chatbot-hi.js?v=414" defer></script>
+  <script src="assets/js/chatbot.js?v=414" defer></script>
+  <script src="assets/js/demo-mode.js?v=41"></script>
+</body>
+</html>

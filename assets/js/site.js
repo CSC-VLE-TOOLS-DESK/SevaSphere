@@ -83,6 +83,8 @@
     ['tools_gold_silver_rate', 'Gold & Silver Value Calculator', 'Enter today\'s rate and get value by weight and purity.', 'calc', 'fa-coins'],
     ['tools_margin_calculator', 'Margin Calculator', 'Find profit, margin %, markup % and selling price from cost, with GST and quantity.', 'calc', 'fa-sack-dollar'],
     ['tools_simple_calculator', 'Simple Calculator', 'A clean calculator with percent, brackets, history and keyboard support.', 'calc', 'fa-calculator'],
+    ['tools_bmi_calculator', 'BMI Calculator', 'Find BMI and the healthy weight range from height and weight.', 'calc', 'fa-weight-scale'],
+    ['tools_unit_converter', 'Unit Converter', 'Convert length, weight, area, volume, speed and temperature, including gaj, acre, tola and quintal.', 'calc', 'fa-ruler-combined'],
     // Exam
     ['tools_typing_test', 'Typing Test & Lessons', 'Learn typing with a keyboard guide, finger colours and lessons, then test your speed. English and Hindi (Inscript).', 'exam', 'fa-keyboard'],
     // Kids
@@ -138,6 +140,9 @@
     ['tools_website_planner', 'Website Planner', 'Lay out your website pages on a canvas with text, images and buttons, then download a ready index.html.', 'webgen', 'fa-diagram-project'],
     ['tools_website_studio', 'Free Website Studio', 'Design a multi-page website on a canvas with 3D buttons, sliders and images. Preview on computer, tablet and phone, then download as ZIP.', 'webgen', 'fa-laptop-code'],
     ['tools_screen_recorder', 'Screen Recorder', 'Record a tab, window or the whole screen in your browser, then play, edit and download the video. No API key needed.', 'util', 'fa-video'],
+    ['tools_word_counter', 'Word Counter', 'Count words, characters, sentences and paragraphs, with reading time. Hindi and English.', 'docs', 'fa-arrow-down-1-9'],
+    ['tools_text_case_converter', 'Text Case Converter', 'Change text to UPPERCASE, lowercase, Title Case or Sentence case. Also removes extra spaces.', 'docs', 'fa-font'],
+    ['tools_password_generator', 'Password Generator', 'Make strong random passwords. Made in your browser and never sent anywhere.', 'util', 'fa-key'],
   ].map(function (t) { return { file: t[0], name: t[1], desc: t[2], cat: t[3], icon: t[4] }; });
   /* v23: shorter categories; duplicates and Kids Corner are not listed in All Tools (their pages still work) */
   var NEWCAT = { 'shop-ledger': 'ledger', 'kirana-store-ledger': 'ledger', 'medical-store-ledger': 'ledger', 'sweet-shop-ledger': 'ledger', 'cloth-shop-ledger': 'ledger', 'garment-store-ledger': 'ledger', 'book-shop-ledger': 'ledger', 'insurance-ledger': 'ledger', 'stock-ledger': 'ledger', 'house-expense': 'ledger', tools_privacy_policy_generator: 'webgen', tools_disclaimer_generator: 'webgen', tools_about_us_generator: 'webgen', tools_photo_resizer: 'resize', tools_sign_resizer: 'resize', tools_thumb_resizer: 'resize', tools_image_compressor: 'resize', tools_image_converter_pro: 'resize', tools_jpg_png_converter: 'resize', tools_image_crop: 'resize',
@@ -184,7 +189,7 @@
      ===================================================================== */
   var SITE = {
     name: 'SevaSphere',
-    url: 'https://csc-vle-tools-desk.github.io/SewaSphere/',
+    url: 'https://csc-vle-tools-desk.github.io/SevaSphere/',
     tagline: 'Free online tools for CSC & VLE centres',
     location: 'Rohtak, Haryana, India',
     hours: 'Mon - Sat, 9:00 AM - 7:00 PM',
@@ -200,7 +205,7 @@
       youtube: '',        // https://youtube.com/@yourchannel
       x: '',              // https://x.com/yourid
       linkedin: '',       // https://linkedin.com/in/yourid
-      github: 'https://github.com/CSC-VLE-TOOLS-DESK/SewaSphere',
+      github: 'https://github.com/CSC-VLE-TOOLS-DESK/SevaSphere',
       claude: 'https://claude.ai'   // Claude (Anthropic)
     }
   };
