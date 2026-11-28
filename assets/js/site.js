@@ -316,9 +316,11 @@
   }
 
   /* ---------- Header and footer ---------- */
+  var XSVG = '<svg class="xi" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
+  function ico(k, c) { return k === 'x' || /x-twitter/.test(c) ? XSVG : '<i class="' + c + '" aria-hidden="true"></i>'; }
   function socialHTML(cls) {
     return SOCIAL_META.filter(function (m) { return SITE.social[m[0]]; }).map(function (m) {
-      return '<a class="' + (cls || 'soc-a') + ' s-' + m[0] + '" href="' + esc(SITE.social[m[0]]) + '" target="_blank" rel="noopener me" aria-label="' + m[1] + '" title="' + m[1] + '"><i class="' + m[2] + '" aria-hidden="true"></i><span class="sr">' + m[1] + '</span></a>';
+      return '<a class="' + (cls || 'soc-a') + ' s-' + m[0] + '" href="' + esc(SITE.social[m[0]]) + '" target="_blank" rel="noopener me" aria-label="' + m[1] + '" title="' + m[1] + '">' + ico(m[0], m[2]) + '<span class="sr">' + m[1] + '</span></a>';
     }).join('');
   }
   CSC.socialHTML = socialHTML;
@@ -328,7 +330,8 @@
       ['WhatsApp', 'fa-brands fa-whatsapp', 'https://wa.me/?text=' + t + '%20' + u, 's-whatsapp'],
       ['Telegram', 'fa-brands fa-telegram', 'https://t.me/share/url?url=' + u + '&text=' + t, 's-telegram'],
       ['Facebook', 'fa-brands fa-facebook-f', 'https://www.facebook.com/sharer/sharer.php?u=' + u, 's-facebook'],
-      ['X', 'fa-brands fa-x-twitter', 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t, 's-x']
+      ['X', 'fa-brands fa-x-twitter', 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t, 's-x'],
+      ['Instagram', 'fa-brands fa-instagram', 'https://www.instagram.com/', 's-instagram']
     ];
   };
   /* Fill [data-site-text], [data-site-link], [data-social-list], [data-share-list] on static pages */
@@ -347,7 +350,17 @@
     });
     $$('[data-social-list]').forEach(function (e) { var h = socialHTML(e.getAttribute('data-social-list') || 'soc-a'); e.innerHTML = h || '<span class="muted-note">Social links will appear here soon.</span>'; });
     $$('[data-share-list]').forEach(function (e) {
-      var cls = e.getAttribute('data-share-list') || 'soc-a'; e.innerHTML = CSC.shareLinks().map(function (l) { return '<a class="' + cls + ' ' + l[3] + '" href="' + esc(l[2]) + '" target="_blank" rel="noopener" aria-label="Share on ' + l[0] + '" title="Share on ' + l[0] + '"><i class="' + l[1] + '" aria-hidden="true"></i><span class="sr">Share on ' + l[0] + '</span></a>'; }).join('');
+      var cls = e.getAttribute('data-share-list') || 'soc-a';
+      e.innerHTML = CSC.shareLinks().map(function (l) {
+        var ic = ico(l[3].slice(2), l[1]), lab = 'Share on ' + l[0];
+        if (l[0] === 'Instagram') return '<button type="button" class="' + cls + ' ' + l[3] + '" data-ig="1" aria-label="' + lab + ' (copies the link)" title="Copy the link, then paste it in Instagram">' + ic + '<span class="sr">' + lab + '</span></button>';
+        return '<a class="' + cls + ' ' + l[3] + '" href="' + esc(l[2]) + '" target="_blank" rel="noopener" aria-label="' + lab + '" title="' + lab + '">' + ic + '<span class="sr">' + lab + '</span></a>';
+      }).join('');
+      var ig = e.querySelector('[data-ig]');
+      if (ig) ig.onclick = function () {
+        var done = function () { if (CSC.toast) CSC.toast('Link copied. Paste it in your Instagram story, post or message.'); window.open('https://www.instagram.com/', '_blank', 'noopener'); };
+        try { navigator.clipboard.writeText(SITE.url).then(done, done); } catch (x) { done(); }
+      };
     });
   }
   CSC.fillSite = fillSite;
@@ -388,7 +401,8 @@
         '<div class="ftr-brand"><a class="logo" href="index.html"><img src="favicon.svg" alt="" width="36" height="36"><span class="logo-t">Seva<b>Sphere</b></span></a>' +
         '<p>Free, fast online tools for CSC and VLE centres, cyber cafes and students: photo and signature resizer, ID card and passport photo print, PDF tools, resumes, applications and calculators.</p>' +
         '<div class="soc" aria-label="Social links">' + socialHTML() + '</div></div>' +
-        '<div><h4>Explore</h4><a href="index.html">Home</a><a href="index.html#tools">All Tools</a><a href="index.html#links">Portal Links</a><a href="pro-studio.html">Pro Studio</a><a href="shop-ledger.html">Shop Ledger</a><a href="stock-ledger.html">Stock Ledger</a><a href="house-expense.html">House Expense</a><a href="https://csc-vle-tools-desk.github.io/Kids-Corner/">Kids Corner</a><a href="prompt-studio.html">Prompt Studio</a><a href="my-step-guides.html">Step Guides</a><a href="web-search.html">Web Search</a><a href="tools_handwriting_converter.html">Handwriting Converter</a></div>' +
+        '<div><h4>Explore</h4><a href="index.html">Home</a><a href="index.html#tools">All Tools</a><a href="index.html#links">Portal Links</a><a href="pro-studio.html">Pro Studio</a><a href="shop-ledger.html">Shop Ledger</a><a href="stock-ledger.html">Stock Ledger</a></div>' +
+        '<div><h4>More Apps</h4><a href="house-expense.html">House Expense</a><a href="https://csc-vle-tools-desk.github.io/Kids-Corner/">Kids Corner</a><a href="prompt-studio.html">Prompt Studio</a><a href="my-step-guides.html">Step Guides</a><a href="web-search.html">Web Search</a><a href="tools_handwriting_converter.html">Handwriting Converter</a><a href="https://csc-vle-tools-desk.github.io/SevaSphere-Dictation/">Voice Dictation</a></div>' +
         '<div><h4>Popular Tools</h4><a href="tools_photo_resizer.html">Photo Resizer</a><a href="tools_pdf_merger.html">PDF Merger</a><a href="tools_ai_passport_studio.html">Passport Photo Studio</a><a href="haryana-resume-generator.html">Resume Builder</a><a href="tools_loan_emi_calculator.html">Loan EMI Calculator</a></div>' +
         '<div><h4>Support</h4><a href="feedback.html">Send Feedback</a><a href="contact.html">Contact Us</a><a href="about.html">About Us</a><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a></div>' +
         '</div><div class="ftr-bar"><span>&copy; ' + yr + ' SevaSphere. All rights reserved.</span><span>Made with <span class="heart" aria-label="love">&#10084;</span> in Rohtak, Haryana</span></div>' +

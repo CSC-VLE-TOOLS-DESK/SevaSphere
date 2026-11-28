@@ -8,3 +8,5 @@ Upload these files to the SevaSphere repository (same folders, replace existing)
 
 Not changed (safe to keep for now): assets/kids, kids-corner-standalone.html, kids-classes.html page itself.
 After you confirm everything works you may delete assets/kids and kids-corner-standalone.html from SevaSphere to reduce files.
+
+Footer update: X logo is now an inline SVG (Font Awesome 6.4 has no X icon). Instagram button added to the share row (it copies the site link and opens Instagram). Footer Explore column shortened and a new "More Apps" column added (House Expense, Kids Corner, Prompt Studio, Step Guides, Web Search, Handwriting Converter, Voice Dictation). To show X and Instagram in "Follow Us" and the footer, put your profile links in assets/js/site.js under SITE.social (x and instagram).

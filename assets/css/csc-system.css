@@ -81,7 +81,7 @@ button,a,input,select,textarea{touch-action:manipulation}
 /* footer */
 #site-footer{margin-top:56px;background:#0a1a4a;background:color-mix(in srgb,var(--brand-strong) 72%,#000);color:#c9d6f5;border-top:4px solid var(--accent);font-size:.92rem}
 .ftr2{max-width:1280px;margin:0 auto;padding:40px 20px 22px}
-.ftr-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.ftr-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:28px}
 .ftr-grid h4{margin:0 0 12px;color:#fff;font-size:1rem;letter-spacing:.3px}
 .ftr-grid a{display:block;color:#c9d6f5;text-decoration:none;padding:4px 0}
 .ftr-grid a:hover{color:#ffc247;text-decoration:underline}
@@ -291,3 +291,8 @@ button,a,input,select,textarea{touch-action:manipulation}
 .sz-pill{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:#e8eefc;color:#1a3fa6;font-weight:800;font-size:.85rem}
 .sz-pill.warn{background:#fff3cd;color:#8a5a00}
 @media print{.pvbar{display:none!important}}
+
+/* X logo is an inline SVG (Font Awesome 6.4 has no X icon) */
+.soc-a svg.xi,.ssb svg.xi{width:1.05em;height:1.05em;display:block;fill:currentColor}
+.share-row button.soc-a{cursor:pointer}
+@media(max-width:1100px){.ftr-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}.ftr-grid .ftr-brand{grid-column:1/-1}}
