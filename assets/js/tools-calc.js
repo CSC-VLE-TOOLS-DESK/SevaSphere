@@ -136,6 +136,7 @@
         var cv = box.querySelector('canvas'), out = document.createElement('canvas'), pad = Math.round(size * 0.06); out.width = out.height = size + pad * 2;
         var x = out.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, out.width, out.height); x.drawImage(cv, pad, pad); box.remove();
         png = await CSC.canvasBlob(out, 'image/png'); out.style.maxWidth = '100%'; $('#pv').innerHTML = ''; $('#pv').appendChild(out); $('#dl').disabled = false;
+        var tl = document.createElement('p'); tl.className = 'hint'; tl.style.cssText = 'word-break:break-all;margin-top:8px'; tl.innerHTML = '<b>This QR opens:</b> <a href="' + data.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener">' + data.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</a><br>Scan it with the phone camera or Google Lens. The scanner inside WhatsApp only reads codes made by WhatsApp itself, so it may not respond. UPI codes open in your UPI app (GPay, PhonePe, Paytm).'; $('#pv').appendChild(tl);
       } catch (e) { CSC.toast(e.message, true); }
     };
     $('#dl').onclick = function () { if (png) CSC.download(png, 'qr-code.png'); };

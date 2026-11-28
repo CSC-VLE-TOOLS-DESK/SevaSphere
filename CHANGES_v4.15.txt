@@ -1,0 +1,11 @@
+v4.15 (28 Nov 2026) - NEW TOOL: Paint
+- Paint (tools_paint.html) - category Background & Photo Edit (now 7 tools).
+- App file: assets/apps/paint.html (SevaSphere Paint Final). Keep the assets/apps folder when you upload to GitHub.
+- Tools: pencil, brush, spray, marker, eraser, fill, picker, text, line, arrow, rectangle, rounded box, ellipse, triangle, diamond, star, heart, wave, select, crop (8 free pins), move. Layers, Sheet / Print (ID card 85.6 x 54 mm), filters, canvas sizes and dpi, save PNG / JPG, print.
+- Added to: assets/js/site.js tool list and Photo Edit group, cat-edit.html card, Background & Photo Edit count 6 -> 7 (home card and every category sidebar), sitemap.xml, chatbot help (English + Hindi).
+- Note: the drawing is not saved automatically; the page says to use Save PNG / Save JPG first.
+
+Added later (28 Nov 2026):
+- Home page: Paint button in the top hero next to Kids Corner, and a Paint card next to Kids Corner in the "more" row.
+- Chatbot (Hindi): Paint has a Hindi name (पेंट), Hindi steps and Hindi keywords (पेंटिंग, चित्र, ड्रॉइंग, ब्रश, रंग).
+- Chatbot fix: common Hindi filler words (कैसे, इस्तेमाल, करें, का, की, के, ...) are now ignored when matching tools, so "पेंट कैसे इस्तेमाल करें" opens Paint instead of an unrelated tool. This helps every tool, not only Paint.

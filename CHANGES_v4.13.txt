@@ -1,0 +1,43 @@
+SevaSphere v4.13 (built on v4.12)
+- NEW TOOL: Smart Board (tools_smart_board.html, category Exam & Education). Digital whiteboard for desktop and laptop: pen, highlighter, eraser, line, arrow, box, circle, triangle, text, sticky notes, laser pointer, 12 colours plus custom colour, 8 backgrounds, many pages, undo and redo, save as PNG, PDF or project file, voice recording, full screen. App file: assets/apps/smart-board.html.
+- Smart Board pictures: draw a box, choose a picture, set 4 pins on the picture and press Set / Enter. The area inside the pins is straightened and fitted into the box. Then move, resize, rotate, flip, brightness, contrast, colour, opacity, round corners, border, black and white, Auto enhance, copy, front and back.
+- Promo Makers (WhatsApp, Facebook, Instagram, Telegram, X): each page now opens the new Pro version by default, with the Classic version one tap away. Pro version: points dropdown with all tool names in English and Hindi, first-line sentences, 22 point styles, 15 colours, video, PDF and HTML attachments, Share poster + files, platform poster sizes, hashtags with counter, and Group send (save groups, send one by one). App files: assets/apps/promo-*.html.
+- Registered in the site tool list, Exam & Education page (now 4 tools), home card count, sitemap and chatbot help.
+- Keep the assets/apps folder when you upload to GitHub.
+
+Added after testing:
+- Promo Makers: the page now shows "Latest Pro version" first and "Old simple version" second. Wording "Personal use only" removed. Hub page descriptions, tool count (5) and About text updated. Exam & Education count is 4 in every sidebar.
+- Chatbot: new full tools list. Ask "all tools", "tool list", "सभी टूल्स" or tap the first chip. Every category opens as a list with English name and Hindi name. Tool search also understands Hindi names (for example फोटो रीसाइज़र).
+- Chatbot step guides: all 91 tool guides now show the English steps and tip, then "हिंदी में स्टेप" with Hindi steps and tip. Hindi questions such as "कैसे इस्तेमाल करें" work.
+- Step Guides page (my-step-guides.html): all built-in guides (AI photo prompts, Website SEO, Upload to GitHub, Fix problems, Link Excel) now have English and Hindi titles and steps. Commands stay in English.
+- Prompt Studio: all 120 prompts now have a Hindi title and Hindi prompt text (113 new, 7 already existed).
+
+Footer, categories and Theme button (added later):
+- Footer share buttons: WhatsApp green, Telegram sky blue, Facebook blue, X black, Instagram gradient. New Instagram share button (it copies the link, then opens Instagram, because Instagram has no web share link). Follow buttons: GitHub dark, Claude orange.
+- New category "Promo Makers" (cat-promo.html) with the 5 promo tools. New card on the home page, new link in every left sidebar, and a NEW item in the right New Tools panel. Smart Board also has a home card and a NEW item. The two oldest items (AI Couple Photo Creator, AI Family Photo Creator) moved off the New Tools panel; they are still in All Tools.
+- One Theme button on every page, top right, same yellow look. Site pages use the header button. App-style pages (Smart Notebook, Prompt Generator, Website Studio, Website Planner, AI Voice Studio, Screen Recorder, Kids Corner) now get the same button from assets/js/theme-float.js, and it saves the same theme as the rest of the site. Ledgers, House Expense, Pro Studio and WhatsApp Image Print keep their own colour menus, but the button looks the same and sits top right.
+
+Fixes from the 24 Nov test report (first batch):
+- Background Remover is now named "Background Remover (Single Colour)" with a note that points to Background Remover Pro and AI Background Remover for many colours.
+- Image Converter: note about transparent PNG with links to the two background removers.
+- Image Crop Tool: width dropdown (200 to 2000 px) for "Scale output to width"; you can still type your own.
+- Name & Date on Photo and Photo Name Joiner: frame colour and frame width (none, thin, medium, thick).
+- Photo & Signature Joiner: shows the file size in KB next to the pixel size.
+- RGB to HEX Converter: a colour chip beside each code.
+- QR Code Generator: shows the exact link the QR opens (tap to test it) and says to scan with the phone camera or Google Lens, because WhatsApp's own scanner only reads WhatsApp-made codes.
+- PDF Merger: "Too big? Compress the merged PDF" button, and a warning when the file is over 5 MB.
+- ID cards (PVC ID Card Print, Student ID Card Creator, Student ID Card, Farmer ID Card Maker, ID Card Print): new "Photo size on card" and "Signature size on card" dropdowns. The signature default is Small so it no longer covers the photo.
+- WhatsApp Image Print: printing now prints only the document, not the About text.
+- Image Text Extractor (OCR) and Handwriting to Text: beta warning on the page and hidden from the main tool list until improved.
+
+Fixes from the 24 Nov test report (second batch):
+- Stamp Maker: add a logo or image, choose where it goes (top, bottom, left, right, centre behind the text) and its size.
+- Visiting Card Maker: second image or logo (bottom right).
+- Notebook Sticker Maker: small photo option.
+- Service Rate List: suggestion list of 30 common CSC services while typing a service name.
+- About Us Generator: "Choose a demo list" dropdown for "What do you offer?".
+- Multiple ID Card Print: 3 demo dropdowns (organisation name, footer text, list of people).
+- Cover Letter Generator: 5 letter styles (Classic, Modern, Formal with blue line, Elegant, Side line).
+- Marriage Biodata Maker: the photo no longer gets squeezed narrow in the preview.
+- Map Download & Print: Bright colourful style (new default) and Soft pastel colours.
+- Privacy Policy and Disclaimer generators: short explanation of what it is, why you need it and how to use it.

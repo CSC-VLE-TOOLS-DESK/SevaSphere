@@ -20,6 +20,7 @@
     { id: 'calc', name: 'Calculators', icon: 'fa-calculator' },
     { id: 'exam', name: 'Exam & Education', icon: 'fa-graduation-cap' },
     { id: 'studio', name: 'Scanner, Album & Wedding Studio', icon: 'fa-camera-retro' },
+    { id: 'promo', name: 'Promo Makers', icon: 'fa-bullhorn' },
     { id: 'util', name: 'Quick Utilities', icon: 'fa-bolt' },
     { id: 'kids', name: 'Kids Corner', icon: 'fa-child-reaching' }
   ];
@@ -32,7 +33,7 @@
     ['tools_image_compressor', 'Image Compressor', 'Reduce image size to a target KB without changing its dimensions.', 'photo', 'fa-compress'],
     ['tools_image_converter_pro', 'Image Converter', 'Convert images between JPG, PNG and WebP.', 'photo', 'fa-right-left'],
     ['tools_image_crop', 'Image Crop Tool', 'Crop images with free or fixed aspect ratios.', 'photo', 'fa-crop'],
-    ['tools_bg_remover', 'Background Remover', 'Remove or replace a plain background colour. Works best on studio style photos.', 'photo', 'fa-wand-magic-sparkles'],
+    ['tools_bg_remover', 'Background Remover (Single Colour)', 'Remove one plain background colour. For many colours use Background Remover Pro or AI Background Remover.', 'photo', 'fa-wand-magic-sparkles'],
     ['tools_bg_remover_pro', 'Background Remover Pro', 'Remove a photo background with hair detail, brush touch-up and colour fill.', 'photo', 'fa-eraser'],
     ['tools_ai_bg_remover', 'AI Background Remover', 'AI cut-out for any photo background with fine hair edges and colour fill.', 'photo', 'fa-robot'],
     ['tools_jpg_png_converter', 'JPG / PNG Converter & Compressor', 'Convert JPG, PNG and WebP, resize and compress to a KB limit.', 'photo', 'fa-photo-film'],
@@ -92,11 +93,11 @@
     // Utilities
     ['tools_qr_code_generator', 'QR Code Generator', 'QR codes for text, links, UPI and WhatsApp.', 'util', 'fa-qrcode'],
     ['tools_promo_maker', 'Promo Maker', 'Poster and message maker for WhatsApp, Facebook, Instagram, X and Telegram with picture, points and a link button.', 'util', 'fa-bullhorn'],
-    ['tools_whatsapp_promo_maker', 'WhatsApp Promo Maker', 'Make a WhatsApp poster and message with a picture, bullet or numbered points and a link button.', 'util', 'fa-share-nodes'],
-    ['tools_facebook_promo_maker', 'Facebook Promo Maker', 'Make a Facebook post text and poster with a picture, points and a link button.', 'util', 'fa-share-nodes'],
-    ['tools_instagram_promo_maker', 'Instagram Promo Maker', 'Make an Instagram caption with hashtags and a 4:5 poster with a picture and points.', 'util', 'fa-share-nodes'],
-    ['tools_x_promo_maker', 'X Promo Maker', 'Make a short X (Twitter) post within 280 letters and a poster with a picture and points.', 'util', 'fa-share-nodes'],
-    ['tools_telegram_promo_maker', 'Telegram Promo Maker', 'Make a Telegram message and poster with a picture, points and a link, ready for your channel.', 'util', 'fa-share-nodes'],
+    ['tools_whatsapp_promo_maker', 'WhatsApp Promo Maker', 'Make a WhatsApp poster and message with a picture, bullet or numbered points and a link button.', 'promo', 'fa-share-nodes'],
+    ['tools_facebook_promo_maker', 'Facebook Promo Maker', 'Make a Facebook post text and poster with a picture, points and a link button.', 'promo', 'fa-share-nodes'],
+    ['tools_instagram_promo_maker', 'Instagram Promo Maker', 'Make an Instagram caption with hashtags and a 4:5 poster with a picture and points.', 'promo', 'fa-share-nodes'],
+    ['tools_x_promo_maker', 'X Promo Maker', 'Make a short X (Twitter) post within 280 letters and a poster with a picture and points.', 'promo', 'fa-share-nodes'],
+    ['tools_telegram_promo_maker', 'Telegram Promo Maker', 'Make a Telegram message and poster with a picture, points and a link, ready for your channel.', 'promo', 'fa-share-nodes'],
     ['tools_whatsapp_ultimate', 'WhatsApp Direct Message', 'Open a WhatsApp chat with any number without saving it.', 'util', 'fa-whatsapp'],
     ['tools_rgb_hex_converter', 'RGB to HEX Converter', 'Convert RGB, HEX and HSL colour codes, pick a colour and check text contrast.', 'util', 'fa-palette'],
     ['tools_stopwatch', 'Stop Watch', 'Online stop watch with laps, keyboard keys and CSV download.', 'util', 'fa-stopwatch'],
@@ -140,18 +141,20 @@
     ['tools_website_planner', 'Website Planner', 'Lay out your website pages on a canvas with text, images and buttons, then download a ready index.html.', 'webgen', 'fa-diagram-project'],
     ['tools_website_studio', 'Free Website Studio', 'Design a multi-page website on a canvas with 3D buttons, sliders and images. Preview on computer, tablet and phone, then download as ZIP.', 'webgen', 'fa-laptop-code'],
     ['tools_screen_recorder', 'Screen Recorder', 'Record a tab, window or the whole screen in your browser, then play, edit and download the video. No API key needed.', 'util', 'fa-video'],
+    ['tools_paint', 'Paint', 'Draw and edit pictures: brush, shapes, text, fill, crop with 8 pins, layers, filters, save as PNG or JPG and print.', 'edit', 'fa-paintbrush'],
+    ['tools_smart_board', 'Smart Board', 'Digital whiteboard for teaching and meetings: pen, shapes, text, sticky notes, pictures fitted with 4 pins, pages, recording and PDF save.', 'exam', 'fa-chalkboard-user'],
     ['tools_word_counter', 'Word Counter', 'Count words, characters, sentences and paragraphs, with reading time. Hindi and English.', 'docs', 'fa-arrow-down-1-9'],
     ['tools_text_case_converter', 'Text Case Converter', 'Change text to UPPERCASE, lowercase, Title Case or Sentence case. Also removes extra spaces.', 'docs', 'fa-font'],
     ['tools_password_generator', 'Password Generator', 'Make strong random passwords. Made in your browser and never sent anywhere.', 'util', 'fa-key'],
   ].map(function (t) { return { file: t[0], name: t[1], desc: t[2], cat: t[3], icon: t[4] }; });
   /* v23: shorter categories; duplicates and Kids Corner are not listed in All Tools (their pages still work) */
   var NEWCAT = { 'shop-ledger': 'ledger', 'kirana-store-ledger': 'ledger', 'medical-store-ledger': 'ledger', 'sweet-shop-ledger': 'ledger', 'cloth-shop-ledger': 'ledger', 'garment-store-ledger': 'ledger', 'book-shop-ledger': 'ledger', 'insurance-ledger': 'ledger', 'stock-ledger': 'ledger', 'house-expense': 'ledger', tools_privacy_policy_generator: 'webgen', tools_disclaimer_generator: 'webgen', tools_about_us_generator: 'webgen', tools_photo_resizer: 'resize', tools_sign_resizer: 'resize', tools_thumb_resizer: 'resize', tools_image_compressor: 'resize', tools_image_converter_pro: 'resize', tools_jpg_png_converter: 'resize', tools_image_crop: 'resize',
-    tools_bg_remover: 'edit', tools_bg_remover_pro: 'edit', tools_ai_bg_remover: 'edit', tools_name_date_photo: 'edit', tools_photo_sign_joiner: 'edit', tools_image_merger: 'edit',
+    tools_bg_remover: 'edit', tools_bg_remover_pro: 'edit', tools_ai_bg_remover: 'edit', tools_name_date_photo: 'edit', tools_photo_sign_joiner: 'edit', tools_image_merger: 'edit', tools_paint: 'edit',
     tools_ai_passport_studio: 'sheets', tools_whatsapp_image_print: 'sheets', 'pro-studio': 'sheets', tools_image_text_extractor: 'docs',
     tools_pvc_id_print: 'idprint', tools_pan_aadhaar_print: 'idprint', tools_id_card_print: 'idprint', tools_multiple_id_card_print: 'idprint', tools_admit_card_holder: 'idprint',
     tools_student_id_creator: 'idmake', tools_student_id_card: 'idmake', tools_farmer_id_maker: 'idmake',
     tools_visiting_card_maker: 'cards', tools_notebook_sticker: 'cards', tools_csc_stamp_maker: 'cards' };
-  var HIDE = { tools_whatsapp_promo_maker: 1, tools_facebook_promo_maker: 1, tools_instagram_promo_maker: 1, tools_x_promo_maker: 1, tools_telegram_promo_maker: 1, tools_photo_signature_joiner: 1, tools_photo_name_joiner: 1, tools_passport_photo_sheet: 1, tools_pdf_split: 1, tools_resume_builder: 1, 'kids-corner': 1 };
+  var HIDE = { tools_image_text_extractor: 1, tools_handwriting_converter: 1, tools_whatsapp_promo_maker: 1, tools_facebook_promo_maker: 1, tools_instagram_promo_maker: 1, tools_x_promo_maker: 1, tools_telegram_promo_maker: 1, tools_photo_signature_joiner: 1, tools_photo_name_joiner: 1, tools_passport_photo_sheet: 1, tools_pdf_split: 1, tools_resume_builder: 1, 'kids-corner': 1 };
   TOOLS.forEach(function (t) { if (NEWCAT[t.file]) t.cat = NEWCAT[t.file]; });
   var LIST = TOOLS.filter(function (t) { return !HIDE[t.file]; });
 
@@ -189,7 +192,7 @@
      ===================================================================== */
   var SITE = {
     name: 'SevaSphere',
-    url: 'https://csc-vle-tools-desk.github.io/SevaSphere/',
+    url: 'https://csc-vle-tools-desk.github.io/SewaSphere/',
     tagline: 'Free online tools for CSC & VLE centres',
     location: 'Rohtak, Haryana, India',
     hours: 'Mon - Sat, 9:00 AM - 7:00 PM',
@@ -205,7 +208,7 @@
       youtube: '',        // https://youtube.com/@yourchannel
       x: '',              // https://x.com/yourid
       linkedin: '',       // https://linkedin.com/in/yourid
-      github: 'https://github.com/CSC-VLE-TOOLS-DESK/SevaSphere',
+      github: 'https://github.com/CSC-VLE-TOOLS-DESK/SewaSphere',
       claude: 'https://claude.ai'   // Claude (Anthropic)
     }
   };
@@ -316,14 +319,20 @@
   }
 
   /* ---------- Header and footer ---------- */
-  var XSVG = '<svg class="xi" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
-  function ico(k, c) { return k === 'x' || /x-twitter/.test(c) ? XSVG : '<i class="' + c + '" aria-hidden="true"></i>'; }
   function socialHTML(cls) {
     return SOCIAL_META.filter(function (m) { return SITE.social[m[0]]; }).map(function (m) {
-      return '<a class="' + (cls || 'soc-a') + ' s-' + m[0] + '" href="' + esc(SITE.social[m[0]]) + '" target="_blank" rel="noopener me" aria-label="' + m[1] + '" title="' + m[1] + '">' + ico(m[0], m[2]) + '<span class="sr">' + m[1] + '</span></a>';
+      return '<a class="' + (cls || 'soc-a') + ' s-' + m[0] + '" href="' + esc(SITE.social[m[0]]) + '" target="_blank" rel="noopener me" aria-label="' + m[1] + '" title="' + m[1] + '"><i class="' + m[2] + '" aria-hidden="true"></i><span class="sr">' + m[1] + '</span></a>';
     }).join('');
   }
   CSC.socialHTML = socialHTML;
+  /* Instagram has no web share link: copy the message and link, then open Instagram */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.s-instagram[aria-label^="Share"]'); if (!a) return;
+    var txt = SITE.name + ' - ' + SITE.tagline + ' ' + SITE.url;
+    try { navigator.clipboard.writeText(txt); } catch (x) { var t = document.createElement('textarea'); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (y) {} t.remove(); }
+    var m = document.createElement('div'); m.setAttribute('role', 'status'); m.textContent = 'Link copied. Paste it in your Instagram post, story or message.';
+    m.style.cssText = 'position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#111c;color:#fff;padding:10px 16px;border-radius:12px;z-index:99999;font:700 14px sans-serif'; document.body.appendChild(m); setTimeout(function () { m.remove(); }, 3500);
+  });
   CSC.shareLinks = function (url, text) {
     var u = encodeURIComponent(url || SITE.url), t = encodeURIComponent(text || (SITE.name + ' - ' + SITE.tagline));
     return [
@@ -350,17 +359,7 @@
     });
     $$('[data-social-list]').forEach(function (e) { var h = socialHTML(e.getAttribute('data-social-list') || 'soc-a'); e.innerHTML = h || '<span class="muted-note">Social links will appear here soon.</span>'; });
     $$('[data-share-list]').forEach(function (e) {
-      var cls = e.getAttribute('data-share-list') || 'soc-a';
-      e.innerHTML = CSC.shareLinks().map(function (l) {
-        var ic = ico(l[3].slice(2), l[1]), lab = 'Share on ' + l[0];
-        if (l[0] === 'Instagram') return '<button type="button" class="' + cls + ' ' + l[3] + '" data-ig="1" aria-label="' + lab + ' (copies the link)" title="Copy the link, then paste it in Instagram">' + ic + '<span class="sr">' + lab + '</span></button>';
-        return '<a class="' + cls + ' ' + l[3] + '" href="' + esc(l[2]) + '" target="_blank" rel="noopener" aria-label="' + lab + '" title="' + lab + '">' + ic + '<span class="sr">' + lab + '</span></a>';
-      }).join('');
-      var ig = e.querySelector('[data-ig]');
-      if (ig) ig.onclick = function () {
-        var done = function () { if (CSC.toast) CSC.toast('Link copied. Paste it in your Instagram story, post or message.'); window.open('https://www.instagram.com/', '_blank', 'noopener'); };
-        try { navigator.clipboard.writeText(SITE.url).then(done, done); } catch (x) { done(); }
-      };
+      var cls = e.getAttribute('data-share-list') || 'soc-a'; e.innerHTML = CSC.shareLinks().map(function (l) { return '<a class="' + cls + ' ' + l[3] + '" href="' + esc(l[2]) + '" target="_blank" rel="noopener" aria-label="Share on ' + l[0] + '" title="Share on ' + l[0] + '"><i class="' + l[1] + '" aria-hidden="true"></i><span class="sr">Share on ' + l[0] + '</span></a>'; }).join('');
     });
   }
   CSC.fillSite = fillSite;
@@ -387,7 +386,7 @@
         (here === 'index.html' ? '' : '<span class="hdr-nav"><a class="hn" href="index.html" title="Go to the main home page"><b aria-hidden="true">&#127968;</b><span>Home</span></a><button class="hn" type="button" onclick="CSC.goBack()" title="Go back to the previous page"><b aria-hidden="true">&larr;</b><span>Back</span></button></span>') +
         '<button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>' +
         '<nav id="main-nav" aria-label="Main"><a href="index.html"' + cur('index.html') + '>Home</a>' +
-        '<a href="index.html#tools">Tools</a><a class="nav-daily" href="index.html#daily-use"><i class="fa-solid fa-star" aria-hidden="true"></i> Daily Use App</a><a href="prompt-studio.html"' + cur('prompt-studio.html') + '><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Prompt Studio</a><a class="nav-kids" href="https://csc-vle-tools-desk.github.io/Kids-Corner/"' + cur('kids-corner.html') + '><i class="fa-solid fa-child-reaching" aria-hidden="true"></i> Kids Corner</a><a href="web-search.html"' + cur('web-search.html') + '><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Web Search</a><a href="index.html#links">Portal Links</a>' +
+        '<a href="index.html#tools">Tools</a><a class="nav-daily" href="index.html#daily-use"><i class="fa-solid fa-star" aria-hidden="true"></i> Daily Use App</a><a href="prompt-studio.html"' + cur('prompt-studio.html') + '><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Prompt Studio</a><a class="nav-kids" href="kids-corner.html"' + cur('kids-corner.html') + '><i class="fa-solid fa-child-reaching" aria-hidden="true"></i> Kids Corner</a><a href="web-search.html"' + cur('web-search.html') + '><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Web Search</a><a href="index.html#links">Portal Links</a>' +
         '<a href="feedback.html"' + cur('feedback.html') + '>Feedback</a><a href="contact.html"' + cur('contact.html') + '>Contact</a></nav></div>';
       themePicker(h);
       var tg = h.querySelector('.nav-toggle'), nv = h.querySelector('nav');
@@ -401,8 +400,7 @@
         '<div class="ftr-brand"><a class="logo" href="index.html"><img src="favicon.svg" alt="" width="36" height="36"><span class="logo-t">Seva<b>Sphere</b></span></a>' +
         '<p>Free, fast online tools for CSC and VLE centres, cyber cafes and students: photo and signature resizer, ID card and passport photo print, PDF tools, resumes, applications and calculators.</p>' +
         '<div class="soc" aria-label="Social links">' + socialHTML() + '</div></div>' +
-        '<div><h4>Explore</h4><a href="index.html">Home</a><a href="index.html#tools">All Tools</a><a href="index.html#links">Portal Links</a><a href="pro-studio.html">Pro Studio</a><a href="shop-ledger.html">Shop Ledger</a><a href="stock-ledger.html">Stock Ledger</a></div>' +
-        '<div><h4>More Apps</h4><a href="house-expense.html">House Expense</a><a href="https://csc-vle-tools-desk.github.io/Kids-Corner/">Kids Corner</a><a href="prompt-studio.html">Prompt Studio</a><a href="my-step-guides.html">Step Guides</a><a href="web-search.html">Web Search</a><a href="tools_handwriting_converter.html">Handwriting Converter</a><a href="https://csc-vle-tools-desk.github.io/SevaSphere-Dictation/">Voice Dictation</a></div>' +
+        '<div><h4>Explore</h4><a href="index.html">Home</a><a href="index.html#tools">All Tools</a><a href="index.html#links">Portal Links</a><a href="pro-studio.html">Pro Studio</a><a href="shop-ledger.html">Shop Ledger</a><a href="stock-ledger.html">Stock Ledger</a><a href="house-expense.html">House Expense</a><a href="kids-corner.html">Kids Corner</a><a href="prompt-studio.html">Prompt Studio</a><a href="my-step-guides.html">Step Guides</a><a href="web-search.html">Web Search</a><a href="tools_handwriting_converter.html">Handwriting Converter</a></div>' +
         '<div><h4>Popular Tools</h4><a href="tools_photo_resizer.html">Photo Resizer</a><a href="tools_pdf_merger.html">PDF Merger</a><a href="tools_ai_passport_studio.html">Passport Photo Studio</a><a href="haryana-resume-generator.html">Resume Builder</a><a href="tools_loan_emi_calculator.html">Loan EMI Calculator</a></div>' +
         '<div><h4>Support</h4><a href="feedback.html">Send Feedback</a><a href="contact.html">Contact Us</a><a href="about.html">About Us</a><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a></div>' +
         '</div><div class="ftr-bar"><span>&copy; ' + yr + ' SevaSphere. All rights reserved.</span><span>Made with <span class="heart" aria-label="love">&#10084;</span> in Rohtak, Haryana</span></div>' +
@@ -503,6 +501,15 @@
   CSC.safe = {
     get: function (k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
     set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { } }
+  };
+
+  /* Adds a "Choose a demo" dropdown above a text box or text area. Picking a demo fills the box. */
+  CSC.addDemo = function (root, id, demos, label) {
+    var el = root.querySelector('#' + id); if (!el || !demos || !demos.length) return;
+    var s = document.createElement('select'); s.setAttribute('aria-label', label || 'Choose a demo'); s.style.cssText = 'width:100%;margin:0 0 6px';
+    s.innerHTML = '<option value="">Choose a demo / डेमो चुनें…</option>' + demos.map(function (d, i) { var t = String(d), first = t.split('\n')[0]; return '<option value="' + i + '">' + CSC.esc(first.slice(0, 60)) + (t.indexOf('\n') > -1 ? ' …' : '') + '</option>'; }).join('');
+    s.onchange = function () { if (s.value === '') return; el.value = demos[+s.value]; el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); s.value = ''; };
+    el.parentNode.insertBefore(s, el);
   };
 
   CSC.fmtBytes = function (n) { return n < 1024 ? n + ' B' : n < 1048576 ? (n / 1024).toFixed(1) + ' KB' : (n / 1048576).toFixed(2) + ' MB'; };

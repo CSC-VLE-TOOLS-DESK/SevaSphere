@@ -227,7 +227,7 @@
     root.innerHTML = '<div class="t-grid"><div class="card no-print"><div id="dz"></div><div id="o" style="display:none;margin-top:14px">' +
       '<div class="field"><label>Shape of crop box</label><select id="ar"><option value="0">Free</option><option value="1">Square 1:1</option><option value="1.3333">4:3</option><option value="1.7778">16:9</option><option value="0.7778">35:45 (passport)</option><option value="0.75">3:4</option><option value="1.5">3:2</option></select></div>' +
       '<div class="field"><label>Output format</label><select id="f"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div>' +
-      '<div class="field"><label>Scale output to width (px, optional)</label><input type="number" id="ow" min="1" placeholder="Original crop size"></div>' +
+      '<div class="field"><label>Scale output to width (px, optional)</label><select id="owp" onchange="var o=this.parentNode.querySelector(\'#ow\');o.value=this.value;o.dispatchEvent(new Event(\'input\'))"><option value="">Original crop size</option><option value="200">200 px</option><option value="300">300 px</option><option value="400">400 px</option><option value="600">600 px</option><option value="800">800 px</option><option value="1000">1000 px</option><option value="1200">1200 px</option><option value="1600">1600 px</option><option value="2000">2000 px</option></select><input type="number" id="ow" min="1" placeholder="Or type your own width" style="margin-top:6px"></div>' +
       '<div class="t-actions"><button class="btn" id="go"><i class="fa-solid fa-crop"></i> Crop &amp; Download</button></div></div></div>' +
       '<div class="card"><div id="host" style="text-align:center"><p class="hint">Choose an image to start.</p></div>' +
       '<div id="pvw" style="display:none;margin-top:12px;border-top:1px solid var(--line,#d9dee8);padding-top:10px"><b>Preview of cropped result</b><div id="pvc" style="margin-top:8px;text-align:center;background:repeating-conic-gradient(#e5e7eb 0% 25%,#fff 0% 50%) 0 0/16px 16px;border:1px solid var(--line,#d9dee8);border-radius:8px;padding:6px"></div><div id="pvs" style="margin-top:6px"></div></div>' +
@@ -302,7 +302,7 @@
   /* ================= Image Converter ================= */
   T.image_converter_pro = function (root) {
     root.innerHTML = '<div class="t-grid"><div class="card no-print"><div id="dz"></div><div style="margin-top:14px"><div class="field"><label>Convert to (you can change this after choosing your pictures)</label><select id="f"><option value="image/jpeg|jpg">JPG</option><option value="image/png|png">PNG</option><option value="image/webp|webp">WebP</option></select></div>' +
-      '<div class="field" id="qb"><label>Quality (JPG/WebP): <span id="qv">90</span>%</label><input type="range" id="q" value="90" min="10" max="100"></div><p class="hint">Transparent areas become white when converting to JPG. Pictures convert again automatically when you change the format or quality.</p></div></div>' +
+      '<div class="field" id="qb"><label>Quality (JPG/WebP): <span id="qv">90</span>%</label><input type="range" id="q" value="90" min="10" max="100"></div><p class="hint">Transparent areas become white when converting to JPG. Keep PNG to save a transparent picture. To make a transparent PNG from a normal photo, first remove the background with <a href="tools_bg_remover_pro.html">Background Remover Pro</a> or <a href="tools_ai_bg_remover.html">AI Background Remover</a>, then convert here. Pictures convert again automatically when you change the format or quality.</p></div></div>' +
       '<div class="card"><h3 class="pane-t">Preview</h3><div class="t-preview" id="pvb" style="margin-bottom:10px"><p class="hint">Your converted picture shows here. Click a small picture in the list to see it.</p></div><div id="pvi" class="hint" style="margin-bottom:10px"></div><ul class="t-list" id="ls"><li class="hint">No images yet.</li></ul><div class="t-actions"><button class="btn" id="all" disabled><i class="fa-solid fa-file-zipper"></i> Download all (ZIP)</button></div></div></div>';
     var $ = function (s) { return root.querySelector(s); }, items = [], res = [], timer, token = 0;
     function fmtUI() { var p = $('#f').value.split('|'); $('#qb').style.display = p[1] === 'png' ? 'none' : ''; $('#qv').textContent = $('#q').value; }
@@ -563,6 +563,7 @@
       '<div class="field"><label>Candidate name</label><input id="nm" placeholder="Full name"></div><div class="field"><label>Date of photo</label><input id="dt" placeholder="DD/MM/YYYY"></div>' +
       '<div class="row2"><div class="field"><label>Output width (px)</label><input type="number" id="w" value="400" min="100"></div><div class="field"><label>Max size (KB, optional)</label><input type="number" id="kb" placeholder="No limit"></div></div>' +
       '<div class="row2"><div class="field"><label>Strip colour</label><input type="color" id="bc" value="#ffffff"></div><div class="field"><label>Text colour</label><input type="color" id="tc" value="#000000"></div></div>' +
+      '<div class="row2"><div class="field"><label>Frame colour</label><input type="color" id="fc" value="#d32f2f"></div><div class="field"><label>Frame width</label><select id="fw"><option value="0">No frame</option><option value="0.012">Thin</option><option value="0.025" selected>Medium</option><option value="0.04">Thick</option></select></div></div>' +
       '<div class="field"><label>Text lines</label><select id="ls"><option value="both">Name and date</option><option value="name">Name only</option><option value="date">Date only</option></select></div>' +
       '<div class="t-actions"><button class="btn" id="dl"><i class="fa-solid fa-download"></i> Download</button></div></div></div>' +
       '<div class="card"><div class="t-preview" id="pv"><p class="hint">Choose a photo to start.</p></div></div></div>';
@@ -586,9 +587,10 @@
       x.fillStyle = $('#bc').value; x.fillRect(0, 0, c.width, c.height); x.drawImage(img, 0, 0, W, ph);
       x.fillStyle = $('#tc').value; x.textAlign = 'center'; x.textBaseline = 'middle'; x.font = '700 ' + fs + 'px Arial, sans-serif';
       lines.forEach(function (t, i) { var f = fs; x.font = '700 ' + f + 'px Arial'; while (x.measureText(t).width > W * 0.94 && f > 8) { f--; x.font = '700 ' + f + 'px Arial'; } x.fillText(t, W / 2, ph + fs * 0.2 + fs * 0.675 + i * fs * 1.35 + fs * 0.1); });
+      var fwv = Math.round(W * parseFloat($('#fw').value || 0)); if (fwv > 0) { x.strokeStyle = $('#fc').value; x.lineWidth = fwv * 2; x.strokeRect(0, 0, c.width, c.height); }
       $('#pv').innerHTML = ''; $('#pv').appendChild(c); showSize();
     }
-    ['nm', 'dt', 'w', 'bc', 'tc', 'ls'].forEach(function (i) { $('#' + i).oninput = draw; });
+    ['nm', 'dt', 'w', 'bc', 'tc', 'ls', 'fc', 'fw'].forEach(function (i) { $('#' + i).oninput = draw; });
     $('#dz').appendChild(CSC.dropzone({ accept: 'image/*', icon: 'fa-image', label: 'Choose a photo', onFiles: async function (f) { try { img = await CSC.fileToImage(f[0]); nm0 = f[0].name.replace(/\.[^.]+$/, ''); $('#o').style.display = ''; draw(); } catch (e) { CSC.toast(e.message, true); } } }));
     $('#dl').onclick = async function () { if (!c) return; var kb = parseFloat($('#kb').value); CSC.download(kb > 0 ? await CSC.fitToKB(c, kb) : await CSC.canvasBlob(c, 'image/jpeg', 0.95), nm0 + '_name_date.jpg'); };
   };
@@ -610,7 +612,7 @@
       c = document.createElement('canvas'); c.width = W; c.height = H; var x = c.getContext('2d'); x.fillStyle = '#000'; x.fillRect(0, 0, W, H); x.fillStyle = '#fff';
       if (v) { x.fillRect(bd, bd, W - 2 * bd, ph); x.drawImage(a, bd + (W - 2 * bd - pw) / 2, bd, pw, ph); x.fillRect(bd, ph + 2 * bd, W - 2 * bd, sh); x.drawImage(b, bd + (W - 2 * bd - sw) / 2, ph + 2 * bd, sw, sh); }
       else { x.fillRect(bd, bd, pw, H - 2 * bd); x.drawImage(a, bd, bd, pw, ph); x.fillRect(pw + 2 * bd, bd, sw, H - 2 * bd); x.drawImage(b, pw + 2 * bd, bd, sw, sh); }
-      $('#pv').innerHTML = ''; $('#pv').appendChild(c); $('#st').innerHTML = '<span class="t-stat">' + W + ' × ' + H + ' px</span>';
+      $('#pv').innerHTML = ''; $('#pv').appendChild(c); $('#st').innerHTML = '<span class="t-stat">' + W + ' × ' + H + ' px</span>'; CSC.canvasBlob(c, 'image/jpeg', 0.92).then(function (b) { $('#st').innerHTML += ' <span class="t-stat">about ' + (b.size / 1024).toFixed(1) + ' KB (JPG)</span>'; });
     }
     $('#d1').appendChild(CSC.dropzone({ accept: 'image/*', icon: 'fa-user', label: 'Choose photo', onFiles: async function (f) { try { a = await CSC.fileToImage(f[0]); draw(); } catch (e) { CSC.toast(e.message, true); } } }));
     $('#d2').appendChild(CSC.dropzone({ accept: 'image/*', icon: 'fa-signature', label: 'Choose signature', onFiles: async function (f) { try { b = await CSC.fileToImage(f[0]); draw(); } catch (e) { CSC.toast(e.message, true); } } }));

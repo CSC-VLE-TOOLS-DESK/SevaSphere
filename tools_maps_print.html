@@ -7,8 +7,8 @@
   <meta name="description" content="Download and print World map, India map with states and a district map of every state and union territory.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#1a3fa6">
-  <link rel="canonical" href="https://csc-vle-tools-desk.github.io/SevaSphere/tools_maps_print.html">
-  <meta property="og:type" content="website"><meta property="og:site_name" content="SevaSphere"><meta property="og:title" content="Map Download &amp; Print: World, India, Haryana"><meta property="og:description" content="Free printable World, India and Haryana maps for students."><meta property="og:url" content="https://csc-vle-tools-desk.github.io/SevaSphere/tools_maps_print.html"><meta property="og:image" content="https://csc-vle-tools-desk.github.io/SevaSphere/og-image.png">
+  <link rel="canonical" href="https://csc-vle-tools-desk.github.io/SewaSphere/tools_maps_print.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="SevaSphere"><meta property="og:title" content="Map Download &amp; Print: World, India, Haryana"><meta property="og:description" content="Free printable World, India and Haryana maps for students."><meta property="og:url" content="https://csc-vle-tools-desk.github.io/SewaSphere/tools_maps_print.html"><meta property="og:image" content="https://csc-vle-tools-desk.github.io/SewaSphere/og-image.png">
   <link rel="icon" href="favicon.ico?v=3" sizes="any"><link rel="icon" href="favicon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=3"><link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/portal.css?v=41">
@@ -40,11 +40,10 @@
       #mp-print svg{width:100%;height:auto;display:block}
     }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Map Download & Print","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"url":"https://csc-vle-tools-desk.github.io/SevaSphere/tools_maps_print.html"}</script>
-  <script src="assets/js/site.js?v=414" defer></script>
-  <script src="assets/js/chatbot-data.js?v=414" defer></script>
-  <script src="assets/js/chatbot-hi.js?v=414" defer></script>
-  <script src="assets/js/chatbot.js?v=414" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Map Download & Print","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"url":"https://csc-vle-tools-desk.github.io/SewaSphere/tools_maps_print.html"}</script>
+  <script src="assets/js/site.js?v=41" defer></script>
+  <script src="assets/js/chatbot-data.js?v=41" defer></script>
+  <script src="assets/js/chatbot.js?v=41" defer></script>
   <link rel="stylesheet" href="assets/css/candy3d.css?v=41">
   <script src="assets/js/candy3d.js?v=41" defer></script>
 <link rel="stylesheet" href="assets/css/mobile-fix.css">
@@ -67,7 +66,7 @@
           <div id="mp-strow" hidden><label for="mp-state">State or Union Territory</label><select id="mp-state"></select></div>
           <div><label>Language</label><div class="mp-seg" id="mp-lang"><button data-v="en" aria-pressed="true">English</button><button data-v="hi" aria-pressed="false">हिन्दी</button></div></div>
           <div><label for="mp-labels">Labels</label><select id="mp-labels"></select></div>
-          <div><label for="mp-style">Style</label><select id="mp-style"><option value="color">Colourful</option><option value="outline">Blank outline (for practice)</option><option value="soft">Soft grey</option></select></div>
+          <div><label for="mp-style">Style</label><select id="mp-style"><option value="color">Bright colourful</option><option value="pastel">Soft pastel colours</option><option value="outline">Blank outline (for practice)</option><option value="soft">Soft grey</option></select></div>
           <div><label for="mp-hi">Highlight one region</label><select id="mp-hi"><option value="">None</option></select></div>
           <div><label for="mp-title">Title</label><input type="text" id="mp-title" maxlength="60"></div>
           <label class="mp-chk"><input type="checkbox" id="mp-name"> Add Name / Class / Date line</label>
@@ -92,7 +91,7 @@
     var $=function(i){return document.getElementById(i)};
     var STATES=[["Andaman and Nicobar Islands","andaman-and-nicobar-islands","अंडमान और निकोबार द्वीपसमूह"],["Andhra Pradesh","andhra-pradesh","आंध्र प्रदेश"],["Arunachal Pradesh","arunachal-pradesh","अरुणाचल प्रदेश"],["Assam","assam","असम"],["Bihar","bihar","बिहार"],["Chandigarh","chandigarh","चंडीगढ़"],["Chhattisgarh","chhattisgarh","छत्तीसगढ़"],["Dadra and Nagar Haveli and Daman and Diu","dnh-and-dd","दादरा नगर हवेली और दमन दीव"],["Delhi","delhi","दिल्ली"],["Goa","goa","गोवा"],["Gujarat","gujarat","गुजरात"],["Haryana","haryana","हरियाणा"],["Himachal Pradesh","himachal-pradesh","हिमाचल प्रदेश"],["Jammu and Kashmir","jammu-and-kashmir","जम्मू और कश्मीर"],["Jharkhand","jharkhand","झारखंड"],["Karnataka","karnataka","कर्नाटक"],["Kerala","kerala","केरल"],["Ladakh","ladakh","लद्दाख"],["Lakshadweep","lakshadweep","लक्षद्वीप"],["Madhya Pradesh","madhya-pradesh","मध्य प्रदेश"],["Maharashtra","maharashtra","महाराष्ट्र"],["Manipur","manipur","मणिपुर"],["Meghalaya","meghalaya","मेघालय"],["Mizoram","mizoram","मिज़ोरम"],["Nagaland","nagaland","नागालैंड"],["Odisha","odisha","ओडिशा"],["Puducherry","puducherry","पुदुचेरी"],["Punjab","punjab","पंजाब"],["Rajasthan","rajasthan","राजस्थान"],["Sikkim","sikkim","सिक्किम"],["Tamil Nadu","tamil-nadu","तमिलनाडु"],["Telangana","telangana","तेलंगाना"],["Tripura","tripura","त्रिपुरा"],["Uttar Pradesh","uttar-pradesh","उत्तर प्रदेश"],["Uttarakhand","uttarakhand","उत्तराखंड"],["West Bengal","west-bengal","पश्चिम बंगाल"]];
     var state={map:'india',lang:'en',st:'haryana'},cache={},cur=null;
-    var PAL=['#fde68a','#bbf7d0','#bfdbfe','#fbcfe8','#fed7aa','#ddd6fe','#a7f3d0','#fecaca','#e9d5ff','#bae6fd'];
+    var PAL=['#ffd23f','#3ddc84','#4da3ff','#ff6fb5','#ff9f43','#a78bfa','#2dd4bf','#ff6b6b','#c084fc','#38bdf8'],PALS=['#fde68a','#bbf7d0','#bfdbfe','#fbcfe8','#fed7aa','#ddd6fe','#a7f3d0','#fecaca','#e9d5ff','#bae6fd'];
     var SHORT={'Dadra and Nagar Haveli and Daman and Diu':['DNH & DD','दादरा-दमन दीव'],'Andaman and Nicobar Islands':['Andaman & Nicobar','अंडमान-निकोबार']};
     var NUDGE={'Chandigarh':[-1.6,.7],'Delhi':[1.2,-.1],'Puducherry':[2.3,-.1],'Goa':[-1.3,0],'Dadra and Nagar Haveli and Daman and Diu':[-2.2,-.2],'Lakshadweep':[0,0]};
     var DEF={world:{t:'World Map',th:'विश्व का मानचित्र',o:'l'},india:{t:'India: States and Union Territories',th:'भारत: राज्य और केंद्र शासित प्रदेश',o:'p'}};
@@ -130,12 +129,12 @@
       var s=Math.min(bw/gw,bh/gh);
       var ox=mg+(bw-gw*s)/2,oy=top+(bh-gh*s)/2;
       var X=function(lon){return ox+(lon-b[0])*cl*s},Y=function(lat){return oy+(b[3]-lat)*s};
-      var nf=M.feats.length,cols=(st==='color')?colors(M.feats,sc):null,sw=(k==='world'?.12:(k==='india'?.22:(nf>40?.2:.3)));
+      var nf=M.feats.length,cols=(st==='color'||st==='pastel')?colors(M.feats,sc):null,sw=(k==='world'?.12:(k==='india'?.22:(nf>40?.2:.3)));
       var fs=(k==='world'?1.7:(k==='india'?2.4:(nf>40?2.2:(nf>25?2.7:(nf>10?3.2:4)))));
       var g=[],tx=[];
       M.feats.forEach(function(f,i){
         var d='';f.p.forEach(function(r){var pts=dec(r,sc);d+='M'+pts.map(function(p){return X(p[0]).toFixed(2)+' '+Y(p[1]).toFixed(2)}).join('L')+'Z'});
-        var fill=st==='outline'?'#fff':(st==='soft'?'#e5e7eb':PAL[cols[i]%PAL.length]);
+        var fill=st==='outline'?'#fff':(st==='soft'?'#e5e7eb':(st==='pastel'?PALS:PAL)[cols[i]%PAL.length]);
         if(hl&&f.n===hl)fill='#f59e0b';
         g.push('<path d="'+d+'" fill="'+fill+'" stroke="#1f2937" stroke-width="'+sw+'" stroke-linejoin="round" fill-rule="evenodd"/>');
       });

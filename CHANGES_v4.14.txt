@@ -1,0 +1,8 @@
+v4.14 (27 Nov 2026) - 5 new tools
+- BMI Calculator (tools_bmi_calculator.html) - Calculators
+- Unit Converter (tools_unit_converter.html) - Calculators (length, weight, area incl. gaj/acre, volume, speed, temperature)
+- Word Counter (tools_word_counter.html) - Resume, Documents & Text (Hindi + English)
+- Text Case Converter (tools_text_case_converter.html) - Resume, Documents & Text
+- Password Generator (tools_password_generator.html) - Quick Utilities
+- Age Calculator already existed (tools_age_calculator.html); not duplicated.
+- Added to: assets/js/site.js tool list, cat-calc/cat-docs/cat-util pages, home counts, sitemap.xml, chatbot help (English + Hindi).

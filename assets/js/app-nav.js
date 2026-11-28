@@ -36,7 +36,7 @@
     '.appnav a,.appnav button{background:var(--bl,#2563eb);color:#fff;border:0;text-decoration:none;padding:7px 11px;border-radius:7px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;line-height:1.2}' +
     '.appnav button:hover{filter:brightness(1.1)}' +
     '.themebox{position:relative;margin-left:auto}' +
-    '.themebox>button{background:#7c3aed;color:#fff;border:0;border-radius:7px;padding:7px 11px;font-weight:700;cursor:pointer}' +
+    '.themebox>button{background:linear-gradient(160deg,#fde047,#eab308);color:#422006;border:2px solid rgba(255,255,255,.5);border-radius:11px;padding:6px 12px;font-weight:800;cursor:pointer;box-shadow:0 4px 0 #854d0e,inset 0 2px 0 rgba(255,255,255,.5)}' +
     '.thememenu{position:absolute;right:0;top:calc(100% + 6px);z-index:300;min-width:230px;background:#fff;color:#111;border:1px solid #cbd5e1;border-radius:10px;padding:8px;box-shadow:0 10px 30px #0003}' +
     '.thememenu[hidden]{display:none}' +
     '.thememenu .tm{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:#fff;color:#111;border:1px solid transparent;border-radius:7px;padding:6px 8px;font-weight:600;font-size:13px;cursor:pointer}' +
@@ -50,7 +50,7 @@
     'html[data-light] button,html[data-light] select,html[data-light] input,html[data-light] textarea{background:var(--fld);color:var(--t);border-color:var(--b)}' +
     'html[data-light] button:hover{background:var(--hv)}' +
     'html[data-light] .appnav a,html[data-light] .appnav button,html[data-light] a.home,html[data-light] .blu{background:#2563eb!important;color:#fff!important;border-color:#2563eb}' +
-    'html[data-light] .themebox>button{background:#7c3aed!important;color:#fff!important}' +
+    'html[data-light] .themebox>button{background:linear-gradient(160deg,#fde047,#eab308)!important;color:#422006!important}' +
     'html[data-light] .pri,html[data-light] .tabs button.on{background:#0f9d6a;color:#fff;border-color:#0f9d6a}' +
     'html[data-light] .pri:hover{background:#0b8a5c}' +
     'html[data-light] .dng{background:#fee2e2;color:#b91c1c;border-color:#fca5a5}' +

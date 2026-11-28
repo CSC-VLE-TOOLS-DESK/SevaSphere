@@ -73,7 +73,7 @@
           var src = await loadPdf(items[i].file), pgs = await out.copyPages(src, src.getPageIndices());
           pgs.forEach(function (p) { out.addPage(p); });
         }
-        var mb = pdfBlob(await out.save()); CSC.download(mb, 'merged.pdf'); CSC.toast('Merged PDF downloaded'); $('#info').innerHTML = '<span class="t-stat">Final merged PDF: ' + CSC.fmtBytes(mb.size) + '</span> <span class="t-stat">' + out.getPageCount() + ' pages</span> <span class="t-stat">Files added: ' + CSC.fmtBytes(items.reduce(function (a, b) { return a + b.file.size; }, 0)) + '</span>';
+        var mb = pdfBlob(await out.save()); CSC.download(mb, 'merged.pdf'); CSC.toast('Merged PDF downloaded'); $('#info').innerHTML = '<span class="t-stat">Final merged PDF: ' + CSC.fmtBytes(mb.size) + '</span> <span class="t-stat">' + out.getPageCount() + ' pages</span> <span class="t-stat">Files added: ' + CSC.fmtBytes(items.reduce(function (a, b) { return a + b.file.size; }, 0)) + '</span> <a class="btn alt" href="tools_pdf_compressor.html">Too big? Compress the merged PDF</a>' + (mb.size > 5242880 ? ' <span class="t-stat" style="background:#fff3cd">Over 5 MB: many portals need a smaller file. Use PDF Compressor.</span>' : '');
       } catch (e) { CSC.toast(e.message, true); }
       btn.disabled = items.length < 2;
     };
